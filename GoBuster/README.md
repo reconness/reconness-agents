@@ -1,2 +1,2 @@
-# reconness-agents
-Reconness Agents Script
+# GoBuster Script
+Reconness GoBuster Agents Script
