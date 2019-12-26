@@ -1,2 +1,2 @@
-# reconness-agents
-Reconness Agents Script
+# Nmap Script
+Reconness Nmap Agents Script
