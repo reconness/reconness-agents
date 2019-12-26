@@ -1,2 +1,2 @@
-# reconness-agents
-Reconness Agents Script
+# Ping Script
+Reconness Ping Agents Script
