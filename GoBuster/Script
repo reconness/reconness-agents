@@ -1,0 +1,12 @@
+if (lineInputCount < 13)
+{
+	return new ReconNet.Core.Models.ScriptOutput();
+}
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"^Found:\s(.*?)");
+if (match.Success && match.Groups.Count == 2)
+{
+    return new ReconNet.Core.Models.ScriptOutput { Subdomain = match.Groups[1].Value };
+}
+ 
+return new ReconNet.Core.Models.ScriptOutput();
