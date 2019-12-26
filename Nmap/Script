@@ -1,0 +1,18 @@
+if (lineInputCount < 5)
+{
+	return new ReconNet.Core.Models.ScriptOutput();
+}
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"(.*?)/tcp\s*open\s*(.*?)$");
+if (match.Success && match.Groups.Count == 3)
+{
+    var scriptOutput = new ReconNet.Core.Models.ScriptOutput { Service = match.Groups[2].Value, Port = int.Parse(match.Groups[1].Value) };
+    if (scriptOutput.Service == "http" || scriptOutput.Service == "https") 
+    {
+        scriptOutput.HasHttpOpen = true;
+    }
+    
+    return scriptOutput;
+}
+
+return new ReconNet.Core.Models.ScriptOutput();
