@@ -1,0 +1,7 @@
+if (lineInputCount < 23)
+{
+	return new ReconNet.Core.Models.ScriptOutput();
+}
+
+lineInput = lineInput.Replace("\u001b[92m", string.Empty).Replace("\u001b[0m", string.Empty);
+return new ReconNet.Core.Models.ScriptOutput { Subdomain = lineInput };
