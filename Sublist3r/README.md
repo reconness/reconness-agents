@@ -1,6 +1,3 @@
-# Sublist3r Script
-Reconness Sublist3r Agents Script
-
 ## Sublist3r Command
 
 If we have sublist3r in the folder /app/Sublist3r/
@@ -19,7 +16,8 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Su
 
 ## Sublist3r Dockerfile Entry
 
-```# -------- Agents dependencies -------- 
+```
+# -------- Agents dependencies -------- 
 
 # To allow run sublist3r inside the docker
 $ RUN apt-get install -y git
@@ -27,4 +25,5 @@ $ RUN apt-get install -y python2.7 python-pip
 $ RUN git clone https://github.com/aboul3la/Sublist3r.git
 $ RUN cd Sublist3r && pip install -r requirements.txt
 
-# -------- End Agents dependencies --------```
+# -------- End Agents dependencies --------
+```
