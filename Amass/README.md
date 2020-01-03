@@ -22,7 +22,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Am
 # -------- Agents dependencies -------- 
 
 # To allow run amass inside the docker
-RUN apt-get install unzip -y
+RUN apt-get update && apt-get install -y wget && apt-get install unzip -y
 RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.4.2/amass_v3.4.2_linux_amd64.zip ; unzip amass_v3.4.2_linux_amd64.zip
 RUN mv /tmp/amass_v3.4.2_linux_amd64/amass /bin
 
