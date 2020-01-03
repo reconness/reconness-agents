@@ -6,6 +6,7 @@ Here we are going to store the list of Agents tested running inside ReconNess We
 
 These are the list of Agents tested inside the Docker
 
+- [Amass](https://github.com/reconness/reconness-agents/blob/master/Amass)
 - [Sublist3r](https://github.com/reconness/reconness-agents/tree/master/Sublist3r)
 - [GoBuster](https://github.com/reconness/reconness-agents/tree/master/GoBuster)
 - [Ping](https://github.com/reconness/reconness-agents/tree/master/Ping)
