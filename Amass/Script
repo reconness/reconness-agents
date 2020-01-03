@@ -3,7 +3,6 @@ using ReconNess.Core.Models;
 var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"([^\.\/]+)(\.[^\.\/]+)+(?:\/|$)");
 if (match.Success)
 {
-    
     return new ScriptOutput { Subdomain = match.Groups[0].Value };
 }
 
