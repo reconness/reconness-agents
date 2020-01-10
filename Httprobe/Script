@@ -1,0 +1,8 @@
+using ReconNess.Core.Models;
+
+if (lineInputCount > 1)
+{
+    return new ScriptOutput();
+}
+
+return new ScriptOutput { IsAlive = true, HasHttpOpen = true};

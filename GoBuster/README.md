@@ -1,22 +1,16 @@
 ## GoBuster Command
 
-```
-go run main.go
-```
-## GoBuster Command for Docker
-
-```
-cd /root/go/bin/ && ./gobuster
-```
-
-## GoBuster Arguments
-
 Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target.
 
 If we have the wordlist in ~/Desktop/tools/wordlist/all.txt
 
 ```
-dns -d {{domain}} -w ~/Desktop/tools/wordlist/all.txt --wildcard
+go run main.go dns -d {{domain}} -w ~/Desktop/tools/wordlist/all.txt --wildcard
+```
+## GoBuster Command for Docker
+
+```
+cd /root/go/bin/ && ./gobuster dns -d {{domain}} -w /app/Subdomain.txt --wildcard
 ```
 
 ## GoBuster Script

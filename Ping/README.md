@@ -1,15 +1,9 @@
 ## Ping Command
 
-```
-ping
-```
-
-## Ping Arguments
-
 Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target.
 
 ```
-{{domain}} -c 1
+ping {{domain}} -c 1
 ```
 
 ## Ping Script

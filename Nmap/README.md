@@ -1,15 +1,9 @@
 ## Nmap Command
 
-```
-nmap
-```
-
-## Nmap Arguments
-
 Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target.
 
 ```
--T4 {{domain}}
+nmap -T4 {{domain}}
 ```
 
 ## Nmap Script
