@@ -15,3 +15,4 @@ These are the list of Agents tested inside the Docker
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)
+[@maverickNerd](https://github.com/maverickNerd)
