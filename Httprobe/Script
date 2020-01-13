@@ -7,12 +7,12 @@ if (string.IsNullOrEmpty(lineInput))
 
 if (lineInput.StartsWith("https"))
 {
-    return new ScriptOutput { IsAlive = true, HasHttpOpen = true, Service = "Http", Port = 443};
+    return new ScriptOutput { IsAlive = true, HasHttpOpen = true, Service = "https", Port = 443};
 }
 
 if (lineInput.StartsWith("http"))
 {
-    return new ScriptOutput { IsAlive = true, HasHttpOpen = true, Service = "Http", Port = 80};
+    return new ScriptOutput { IsAlive = true, HasHttpOpen = true, Service = "http", Port = 80};
 }
 
 return new ScriptOutput();
