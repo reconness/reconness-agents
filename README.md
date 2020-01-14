@@ -12,8 +12,8 @@ These are the list of Agents tested inside the Docker
 - [Ping](https://github.com/reconness/reconness-agents/tree/master/Ping)
 - [Nmap](https://github.com/reconness/reconness-agents/tree/master/Nmap)
 - [Httprobe](https://github.com/reconness/reconness-agents/tree/master/Httprobe)
+- [Subfinder](https://github.com/reconness/reconness-agents/tree/master/Subfinder)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)
-
 [@maverickNerd](https://github.com/maverickNerd)
