@@ -1,14 +1,20 @@
 using ReconNess.Core.Models;
 
-if (lineInputCount < 13)
+if (lineInputCount < 15)
 {
 	return new ScriptOutput();
 }
 
-var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"^Found:\s(.*?)");
-if (match.Success && match.Groups.Count == 2)
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"(.*?)\(Status: (.*?)\) \[Size: (.*?)\]");
+if (match.Success && match.Groups.Count == 4)
 {
-    return new ScriptOutput { Subdomain = match.Groups[1].Value };
+    return new ScriptOutput 
+    { 
+        HttpDirectory = match.Groups[1].Value,
+        HttpDirectoryMethod = "GET",
+        HttpDirectoryStatusCode = match.Groups[2].Value,
+        HttpDirectorySize = match.Groups[3].Value,
+    };
 }
  
 return new ScriptOutput();
