@@ -1,23 +1,23 @@
-## GoBuster Command
+## GoBusterDns Command
 
 Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target.
 
 If we have the wordlist in ~/Desktop/tools/wordlist/all.txt
 
 ```
-go run main.go dns -d {{domain}} -w ~/Desktop/tools/wordlist/all.txt --wildcard
+gobuster dns -d {{domain}} -w ~/Desktop/tools/wordlist/all.txt --wildcard -z
 ```
-## GoBuster Command for Docker
+## GoBusterDns Command for Docker
 
 ```
-cd /root/go/bin/ && ./gobuster dns -d {{domain}} -w /app/Subdomain.txt --wildcard
+cd /root/go/bin/ && ./gobuster dns -d {{domain}} -w /app/Subdomain.txt --wildcard -z
 ```
 
-## GoBuster Script
+## GoBusterDns Script
 
-Check [Script file](https://github.com/reconness/reconness-agents/blob/master/GoBuster/Script)
+Check [Script file](https://github.com/reconness/reconness-agents/blob/master/GoBusterDns/Script)
 
-## GoBuster Dockerfile Entry
+## GoBusterDns Dockerfile Entry
 
 ```
 # -------- Agents dependencies -------- 

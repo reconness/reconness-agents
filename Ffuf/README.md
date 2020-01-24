@@ -1,6 +1,6 @@
-## Ffuf Command
+## ffuf Command
 
-Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target
+Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 
 If we have the wordlist in ~/Desktop/tools/wordlist/directories.txt
 
@@ -8,11 +8,17 @@ If we have the wordlist in ~/Desktop/tools/wordlist/directories.txt
 ffuf -w ~/Desktop/tools/wordlist/directories.txt -u https://{{domain}}/FUZZ
 ```
 
-## Ffuf Script
+## ffuf Command for Docker
+
+```
+cd /root/go/bin/ && ./ffuf -w /app/dicc.txt -u https://{{domain}}/FUZZ
+```
+
+## ffuf Script
 
 Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Ffuf/Script)
 
-## Ffuf Dockerfile Entry
+## ffuf Dockerfile Entry
 
 ```
 # -------- Agents dependencies -------- 
@@ -25,13 +31,9 @@ RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
 RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile && go get github.com/ffuf/ffuf
-RUN wget https://raw.githubusercontent.com/maurosoria/dirsearch/master/db/dicc.txt
+RUN wget https://gist.githubusercontent.com/gorums/0a3a9d903e8e47fbff9d91097e19b4f8/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt
 
 # -------- End Agents dependencies -------- 
 ```
 
-## Ffuf Command for Docker
 
-```
-cd /root/go/bin/ && ./ffuf -w /app/dicc.txt -u https://{{domain}}/FUZZ
-```

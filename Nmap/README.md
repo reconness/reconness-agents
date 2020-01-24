@@ -1,6 +1,6 @@
 ## Nmap Command
 
-Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target.
+Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 
 ```
 nmap -T4 {{domain}}

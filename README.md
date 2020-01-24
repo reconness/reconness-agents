@@ -6,13 +6,23 @@ Here we are going to store the list of Agents tested running inside ReconNess We
 
 These are the list of Agents tested inside the Docker
 
+### Agents Subdomain Enum
+
+- [Subfinder](https://github.com/reconness/reconness-agents/tree/master/Subfinder)
 - [Amass](https://github.com/reconness/reconness-agents/blob/master/Amass)
+- [GoBusterDns](https://github.com/reconness/reconness-agents/tree/master/GoBusterDns)
 - [Sublist3r](https://github.com/reconness/reconness-agents/tree/master/Sublist3r)
-- [GoBuster](https://github.com/reconness/reconness-agents/tree/master/GoBuster)
+
+### Agents Dir Discovery
+
+- [ffuf](https://github.com/reconness/reconness-agents/tree/master/Ffuf)
+- [GoBusterDir](https://github.com/reconness/reconness-agents/tree/master/GoBusterDir)
+
+### Agents Scan
+
+- [Httprobe](https://github.com/reconness/reconness-agents/tree/master/Httprobe)
 - [Ping](https://github.com/reconness/reconness-agents/tree/master/Ping)
 - [Nmap](https://github.com/reconness/reconness-agents/tree/master/Nmap)
-- [Httprobe](https://github.com/reconness/reconness-agents/tree/master/Httprobe)
-- [Subfinder](https://github.com/reconness/reconness-agents/tree/master/Subfinder)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)
