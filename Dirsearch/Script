@@ -1,0 +1,20 @@
+using ReconNess.Core.Models;
+
+if (lineInputCount < 10)
+{
+    return new ScriptOutput();
+}
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"](.*?) - (.*?) - (.*?) ->");
+if (match.Success && match.Groups.Count == 4)
+{
+    return new ScriptOutput 
+    { 
+        HttpDirectoryStatusCode = match.Groups[1].Value,
+        HttpDirectoryMethod = "GET",
+        HttpDirectorySize= match.Groups[2].Value,
+        HttpDirectory= match.Groups[3].Value.Replace("[0m", "")
+    };
+}
+ 
+return new ScriptOutput();
