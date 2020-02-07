@@ -16,7 +16,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Pi
 # -------- Agents dependencies -------- 
 
 # To allow run ping inside the docker
-$ RUN apt-get update && apt-get install -y iputils-ping
+RUN apt-get update && apt-get install -y iputils-ping
 
 # -------- End Agents dependencies -------- 
 ```

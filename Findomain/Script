@@ -1,0 +1,14 @@
+using ReconNess.Core.Models;
+
+if (lineInputCount < 13)
+{
+	return new ScriptOutput();
+}
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"([^\.\/]+)(\.[^\.\/]+)+(?:\/|$)");
+if (match.Success)
+{
+    return new ScriptOutput { Subdomain = match.Groups[0].Value };
+}
+
+return new ScriptOutput();
