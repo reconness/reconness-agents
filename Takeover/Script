@@ -1,0 +1,13 @@
+using ReconNess.Core.Models;
+
+if (lineInputCount < 13)
+{
+	return new ScriptOutput();
+}
+
+if (lineInput.Contains("service found! Potential domain takeover found"))
+{
+    return new ScriptOutput { Takeover = true };
+}
+
+return new ScriptOutput();
