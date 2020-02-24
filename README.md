@@ -12,6 +12,7 @@ These are the list of Agents tested inside the Docker
 - [Amass](https://github.com/reconness/reconness-agents/blob/master/Amass)
 - [GoBusterDns](https://github.com/reconness/reconness-agents/tree/master/GoBusterDns)
 - [Sublist3r](https://github.com/reconness/reconness-agents/tree/master/Sublist3r)
+- [Findomain](https://github.com/reconness/reconness-agents/tree/master/Findomain)
 
 ### Agents Dir Discovery
 
