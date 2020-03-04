@@ -1,51 +1,123 @@
 {
 	"agents": [{
 			"name": "Subfinder",
-			"category": "Agents Subdomain Enum"
+			"category": "Agents Subdomain Enum",
+			"command": "cd /root/go/bin/ && ./subfinder -d {{domain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script"
 		},
 		{
 			"name": "Amass",
-			"category": "Agents Subdomain Enum"
+			"category": "Agents Subdomain Enum",
+			"command": "/bin/amass enum --passive -d {{domain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Amass/Script"
 		},
 		{
 			"name": "GoBusterDns",
-			"category": "Agents Subdomain Enum"
+			"category": "Agents Subdomain Enum",
+			"command": "cd /root/go/bin/ && ./gobuster dns -d {{domain}} -w /app/Subdomain.txt --wildcard -z",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDns/Script"
 		},
 		{
 			"name": "Sublist3r",
-			"category": "Agents Subdomain Enum"
+			"category": "Agents Subdomain Enum",
+			"command": "python /app/Sublist3r/sublist3r.py -d {{domain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Sublist3r/Script"
 		},
 		{
 			"name": "Findomain",
-			"category": "Agents Subdomain Enum"
+			"category": "Agents Subdomain Enum",
+			"command": "./findomain-linux -t {{domain}} -r",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Findomain/Script"
 		},
 		{
 			"name": "Ffuf",
-			"category": "Agents Dir Discovery"
+			"category": "Agents Dir Discovery",
+			"command": "cd /root/go/bin/ && ./ffuf -w /app/dicc.txt -u https://{{domain}}/FUZZ",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script"
 		},
 		{
 			"name": "GoBusterDir",
-			"category": "Agents Dir Discovery"
+			"category": "Agents Dir Discovery",
+			"command": "cd /root/go/bin/ && ./gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txtcd /root/go/bin/ && ./gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txt -z -k -l -r --wildcard",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script"
 		},
 		{
 			"name": "Dirsearch",
-			"category": "Agents Dir Discovery"
+			"category": "Agents Dir Discovery",
+			"command": "cd /app/dirsearch && ./dirsearch.py -u {{domain}} -e php -r",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dirsearch/Script"
 		},
 		{
 			"name": "Httprobe",
-			"category": "Agents Scan"
+			"category": "Agents Scan",
+			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./httprobe",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Httprobe/Script"
 		},
 		{
 			"name": "Ping",
-			"category": "Agents Scan"
+			"category": "Agents Scan",
+			"command": "ping {{domain}} -c 1",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ping/Script"
 		},
 		{
 			"name": "Nmap",
-			"category": "Agents Scan"
+			"category": "Agents Scan",
+			"command": "nmap -T4 {{domain}}",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Nmap/Script"
 		},
 		{
 			"name": "Takeover",
-			"category": "Agents Scan"
+			"category": "Agents Scan",
+			"command": "python3 /app/takeover/takeover.py -d {{domain}} -v",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script"
 		}
 	]
 }
