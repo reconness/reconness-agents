@@ -12,7 +12,7 @@
 		{
 			"name": "Amass",
 			"category": "Agents Subdomain Enum",
-			"command": "/bin/amass enum --passive -d {{domain}}",
+			"command": "/bin/amass enum -d {{domain}}",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
