@@ -74,6 +74,8 @@ func CopyOneForAll(dir string) {
 
 func main() {
 	domain := flag.String("d", "", "Domain")
+	flag.Parse()
+
 	OneForAll(*domain)
 	CopyOneForAll("/root/app/OneForAll/")
 
