@@ -38,7 +38,7 @@ func ReadFile(filePath string) []string {
 func OneForAll(domain string) {
 	println("starting one for all")
 
-	cmd := exec.Command("python3", "/root/app/OneForAll/oneforall.py", "--target", domain, "--path", "tmp", "run")
+	cmd := exec.Command("python3", "/app/OneForAll/oneforall.py", "--target", domain, "--path", "tmp", "run")
 
 	println(cmd.String())
 	stderr, _ := cmd.StderrPipe()
@@ -77,6 +77,6 @@ func main() {
 	flag.Parse()
 
 	OneForAll(*domain)
-	CopyOneForAll("/root/app/OneForAll/")
+	CopyOneForAll("/app/OneForAll/")
 
 }
