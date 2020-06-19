@@ -1,15 +1,15 @@
 ## OneForAll Command
 
-Using {{domain}} ReconNess replace {{domain}} for the subdomain.
+Using {{rootDomain}} ReconNess replace {{rootDomain}} for the subdomain.
 
 
 ```
-/usr/local/go/bin/go run OneForAllWrapper.go -d {{domain}} 
+/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
 ```
 ## OneForAll Command for Docker
 
 ```
-cd /app/OneForAllWrapper && /usr/local/go/bin/go run OneForAllWrapper.go -d {{domain}} 
+cd /app/OneForAllWrapper && /usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
 ```
 
 ## OneForAll Script
