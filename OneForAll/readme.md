@@ -1,11 +1,13 @@
 ## OneForAll Command
 
-Using {{rootDomain}} ReconNess replace {{rootDomain}} for the subdomain.
+Using {{rootDomain}} ReconNess replace {{rootDomain}} for the root domain. Ex: yahoo.com
 
+If we have OneForAllWrapper in the folder ~/Desktop/OneForAllWrapper/
 
 ```
-/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
+cd ~/Desktop/OneForAllWrapper && /usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
 ```
+
 ## OneForAll Command for Docker
 
 ```

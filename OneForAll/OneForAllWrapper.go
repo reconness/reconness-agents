@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"bufio"
 	"flag"
 	"io/ioutil"
@@ -38,7 +39,7 @@ func ReadFile(filePath string) []string {
 
 //OneForAll executes the OneForAll python script
 func OneForAll(domain string, outputDir string) {
-	cmd := exec.Command("python3", "/app/OneForAll/oneforall.py", "--target", domain, "--path", outputDir, "run")
+	cmd := exec.Command("python3", "OneForAll/oneforall.py", "--target", domain, "--path", outputDir, "run")
 
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
@@ -64,7 +65,8 @@ func ParseData(outputDir string) {
 		if strings.Contains(file.Name(), ".txt") {
 			content := ReadFile(cwd + "/" + outputDir + "/" + file.Name())
 			for _, line := range content {
-				println(line)
+				fmt.Println(line)
+				time.Sleep(1 * time.Second)
 			}
 		}
 	}
