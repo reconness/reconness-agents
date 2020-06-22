@@ -76,6 +76,12 @@ RUN apt-get update && apt-get install -y nmap
 RUN git clone https://github.com/m4ll0k/takeover.git
 RUN cd takeover && python3 setup.py install
 
+# To allow run OneForAll inside the docker
+RUN wget https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/OneForAllWrapper.go
+RUN git clone https://github.com/shmilylty/OneForAll.git
+RUN python3 -m pip install -U pip setuptools wheel
+RUN pip3 install -r /app/OneForAll/requirements.txt
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]
