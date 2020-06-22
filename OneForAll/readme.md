@@ -23,7 +23,7 @@ Check [Script file](add script file location)
 ```
 # -------- Agents dependencies -------- 
 
-# To allow run gobuster inside the docker
+# To allow run OneForAll inside the docker
 
 RUN apt-get update && apt-get install -y git python3 python3-pip
 RUN apt-get install -y wget
