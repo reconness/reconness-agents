@@ -33,7 +33,7 @@ RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
 RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile
-RUN wget https://raw.githubusercontent.com/hiddengearz/reconness-agents/master/OneForAll/OneForAllWrapper.go
+RUN wget https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/OneForAllWrapper.go
 RUN git clone https://github.com/shmilylty/OneForAll.git
 RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
