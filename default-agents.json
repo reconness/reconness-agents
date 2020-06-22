@@ -2,7 +2,7 @@
 	"agents": [{
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
-			"command": "cd /root/go/bin/ && ./subfinder -d {{domain}}",
+			"command": "cd /root/go/bin/ && ./subfinder -d {{rootDomain}}",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -12,7 +12,7 @@
 		{
 			"name": "Amass",
 			"category": "Agents Subdomain Enum",
-			"command": "/bin/amass enum -d {{domain}}",
+			"command": "/bin/amass enum -d {{rootDomain}}",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -22,7 +22,7 @@
 		{
 			"name": "GoBusterDns",
 			"category": "Agents Subdomain Enum",
-			"command": "cd /root/go/bin/ && ./gobuster dns -d {{domain}} -w /app/Subdomain.txt --wildcard -z",
+			"command": "cd /root/go/bin/ && ./gobuster dns -d {{rootDomain}} -w /app/Subdomain.txt --wildcard -z",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -32,7 +32,7 @@
 		{
 			"name": "Sublist3r",
 			"category": "Agents Subdomain Enum",
-			"command": "python /app/Sublist3r/sublist3r.py -d {{domain}}",
+			"command": "python /app/Sublist3r/sublist3r.py -d {{rootDomain}}",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -42,7 +42,7 @@
 		{
 			"name": "Findomain",
 			"category": "Agents Subdomain Enum",
-			"command": "./findomain-linux -t {{domain}} -r",
+			"command": "./findomain-linux -t {{rootDomain}} -r",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -118,6 +118,16 @@
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script"
+		},
+	        {
+			"name": "OneForAll",
+			"category": "Agents Subdomain Enum",
+			"command": "/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script"
 		}
 	]
 }
