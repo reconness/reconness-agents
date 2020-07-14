@@ -140,6 +140,17 @@
 			"skipIfRanBefore": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script",
 			"repository": "https://github.com/shmilylty/OneForAll"
+		},
+		{
+			"name": "Zdns",
+			"category": "Agents Scan",
+			"command": ". ~/.profile &&  cd /app/zdns/zdns && echo '{{domain}},8.8.8.8' | go run main.go A",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Zdns/Script",
+			"repository": "https://github.com/zmap/zdns"
 		}
 	]
 }

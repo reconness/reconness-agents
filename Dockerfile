@@ -82,6 +82,10 @@ RUN git clone https://github.com/shmilylty/OneForAll.git
 RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
 
+# To allow run zdns inside the docker
+RUN git clone https://github.com/zmap/zdns.git
+RUN . ~/.profile && cd zdns && go build
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]
