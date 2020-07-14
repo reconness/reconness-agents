@@ -7,7 +7,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script",
+			"repository": "https://github.com/projectdiscovery/subfinder"
 		},
 		{
 			"name": "Amass",
@@ -17,7 +18,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Amass/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Amass/Script",
+			"repository": "https://github.com/OWASP/Amass"
 		},
 		{
 			"name": "GoBusterDns",
@@ -27,7 +29,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDns/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDns/Script",
+			"repository": "https://github.com/OJ/gobuster#dns-mode-help"
 		},
 		{
 			"name": "Sublist3r",
@@ -37,7 +40,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Sublist3r/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Sublist3r/Script",
+			"repository": "https://github.com/aboul3la/Sublist3r"
 		},
 		{
 			"name": "Findomain",
@@ -47,7 +51,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Findomain/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Findomain/Script",
+			"repository": "https://github.com/Edu4rdSHL/findomain"
 		},
 		{
 			"name": "Ffuf",
@@ -57,7 +62,8 @@
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script",
+			"repository": "https://github.com/ffuf/ffuf"
 		},
 		{
 			"name": "GoBusterDir",
@@ -67,7 +73,8 @@
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script",
+			"repository": "https://github.com/OJ/gobuster#dir-mode-options"
 		},
 		{
 			"name": "Dirsearch",
@@ -77,7 +84,8 @@
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dirsearch/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dirsearch/Script",
+			"repository": "https://github.com/maurosoria/dirsearch"
 		},
 		{
 			"name": "Httprobe",
@@ -87,7 +95,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Httprobe/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Httprobe/Script",
+			"repository": "https://github.com/tomnomnom/httprobe"
 		},
 		{
 			"name": "Ping",
@@ -107,7 +116,8 @@
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Nmap/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Nmap/Script",
+			"repository": "https://github.com/nmap/nmap"
 		},
 		{
 			"name": "Takeover",
@@ -117,7 +127,8 @@
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script",
+			"repository": "https://github.com/m4ll0k/takeover"
 		},
 	        {
 			"name": "OneForAll",
@@ -127,7 +138,8 @@
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
 			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script",
+			"repository": "https://github.com/shmilylty/OneForAll"
 		}
 	]
 }
