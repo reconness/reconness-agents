@@ -86,6 +86,11 @@ RUN pip3 install -r /app/OneForAll/requirements.txt
 RUN git clone https://github.com/zmap/zdns.git
 RUN . ~/.profile && cd zdns && go build
 
+# To allow run knockpy the docker
+RUN apt-get install -y python-dnspython
+RUN git clone https://github.com/guelfoweb/knock
+RUN cd knock && python setup.py install
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

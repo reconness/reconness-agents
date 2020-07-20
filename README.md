@@ -14,6 +14,7 @@ These are the list of Agents tested inside the Docker
 - [Sublist3r](https://github.com/reconness/reconness-agents/tree/master/Sublist3r)
 - [Findomain](https://github.com/reconness/reconness-agents/tree/master/Findomain)
 - [OneForAll](https://github.com/reconness/reconness-agents/tree/master/OneForAll)
+- [Knockpy](https://github.com/reconness/reconness-agents/tree/master/Knockpy)
 
 ### Agents Dir Discovery
 

@@ -151,6 +151,17 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Zdns/Script",
 			"repository": "https://github.com/zmap/zdns"
+		},
+		{
+			"name": "Knockpy",
+			"category": "Agents Subdomain Enum",
+			"command": "python /app/knock/knockpy/knockpy.py {{rootDomain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Knockpy/Script",
+			"repository": "https://github.com/guelfoweb/knock"
 		}
 	]
 }
