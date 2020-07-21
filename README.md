@@ -36,3 +36,5 @@ These are the list of Agents tested inside the Docker
 [@maverickNerd](https://github.com/maverickNerd)
 
 [@hiddengearz](https://github.com/hiddengearz)
+
+[@d1pakda5](https://github.com/d1pakda5)
