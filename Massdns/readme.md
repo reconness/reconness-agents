@@ -2,9 +2,12 @@
 
 # To allow run Massdns inside the docker
 
-RUN apt-get update && apt-get install -y git python3 python3-pip
-RUN git clone https://github.com/nsonaniya2010/SubDomainizer.git
-RUN cd SubDomainizer && pip3 install -r requirements.txt
+RUN apt-get update && apt-get install -y git
+RUN apt-get install -y wget
+RUN wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
+RUN echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 
 # -------- End Agents dependencies -------- 
 ```

@@ -95,7 +95,7 @@ func CsvtoTxt(existingCsv string, newTxt string) {
 
 	file, err := os.Open(existingCsv)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal(err)
 	}
 	reader := csv.NewReader(file)
 	records, _ := reader.ReadAll()
@@ -134,7 +134,6 @@ func ReadFile(filePath string) []string {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		//fmt.Println(scanner.Text())
 		content = append(content, scanner.Text())
 	}
 
@@ -148,21 +147,13 @@ func ReadFile(filePath string) []string {
 
 //Subdomain to ip
 func MassDns(subdomains string) {
-	println("starting massdns")
-
 	path := "/app/massdns"
 	cmd := exec.Command(path+"/bin/massdns", "-r", path+"/lists/resolvers.txt", subdomains, "-o", "S", "-w", subdomains+".massdns")
 
-	println(cmd.String())
-	stderr, _ := cmd.StderrPipe()
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
 
-	scanner := bufio.NewScanner(stderr)
-	for scanner.Scan() {
-		fmt.Println(scanner.Text())
-	}
 	cmd.Wait()
 
 	content := ReadFile(subdomains + ".massdns")
