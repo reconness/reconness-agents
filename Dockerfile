@@ -39,8 +39,8 @@ RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile && go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 
 # To allow run amass inside the docker
-RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.6.1/amass_v3.6.1_linux_amd64.zip ; unzip amass_v3.6.1_linux_amd64.zip
-RUN mv /tmp/amass_v3.6.1_linux_amd64/amass /bin
+RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amass_linux_amd64.zip ; unzip amass_linux_amd64.zip
+RUN mv /tmp/amass_linux_amd64.zip/amass /bin
 
 # To allow run gobuster inside the docker
 RUN . ~/.profile && go get github.com/OJ/gobuster
