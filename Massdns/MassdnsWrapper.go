@@ -194,7 +194,7 @@ func main() {
 	// Get the token to allow us send auth request
 	token := GetToken(jwt)
 	// Export subdomains to a file
-	ExportSubdomains(*url, *subdomainApi, token, "/tmp/"+randomFile+".csv")
+	ExportSubdomains(*url, *subdomainApi, token, "/tmp/"+randomFile)
 	CsvtoTxt("/tmp/"+randomFile, "/tmp/"+randomFile+".txt")
 	MassDns("/tmp/" + randomFile + ".txt")
 }
