@@ -11,7 +11,7 @@ cd ~/Desktop/MassdnsWrapper && usr/local/go run MassdnsWrapper.go -b https://loc
 ## MassDNS Command for Docker
 
 ```
-usr/local/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+/usr/local/go/bin/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
 ```
 
 ## Massdns Dockerfile Entry
@@ -30,7 +30,7 @@ RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
-RUN cd .. && wget https://raw.githubusercontent.com/hiddengearz/reconness-agents/master/Massdns/MassdnsWrapper.go
+RUN cd /app && wget https://raw.githubusercontent.com/hiddengearz/reconness-agents/master/Massdns/MassdnsWrapper.go
 ```
 
 # -------- End Agents dependencies -------- 
