@@ -5,7 +5,7 @@ Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomain
 If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
 
 ```
-cd ~/Desktop/MassdnsWrapper && usr/local/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+cd ~/Desktop/MassdnsWrapper && /usr/local/go/bin/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
 ```
 
 ## MassDNS Command for Docker
@@ -21,8 +21,7 @@ cd ~/Desktop/MassdnsWrapper && usr/local/go run MassdnsWrapper.go -b https://loc
 # To allow run Massdns inside the docker
 
 ```
-RUN apt-get update && apt-get install -y git
-RUN apt-get install -y wget
+RUN apt-get update && apt-get install -y git build-essential wget
 RUN wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz
 RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
