@@ -4,21 +4,18 @@ import (
 	"bufio"
 	"bytes"
 	"crypto/tls"
-	"encoding/csv"
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"log"
-	"math/rand"
 	"net/http"
 	"os"
 	"os/exec"
 	"strings"
-	"time"
 )
 
+//Auth authenticates to reonness
 func Auth(url string, authApi string, username string, password string) string {
 
 	values := map[string]string{"UserName": username, "Password": password}
@@ -39,6 +36,7 @@ func Auth(url string, authApi string, username string, password string) string {
 	return string(body)
 }
 
+//GetToken Retrieves the JWT for authentication
 func GetToken(jwt string) string {
 
 	in := []byte(jwt)
@@ -49,7 +47,8 @@ func GetToken(jwt string) string {
 	return raw["auth_token"].(string)
 }
 
-func ExportSubdomains(url string, subdomainApi string, token string, filepath string) {
+//ExportSubdomains exports subdomains to a temporary file
+func ExportSubdomains(url string, subdomainApi string, token string) {
 
 	req, err := http.NewRequest("GET", url+"/"+subdomainApi, nil)
 	req.Header.Set("Authorization", "Bearer "+token)
@@ -62,66 +61,29 @@ func ExportSubdomains(url string, subdomainApi string, token string, filepath st
 	}
 	defer resp.Body.Close()
 
-	out, err := os.Create(filepath)
-	if err != nil {
-		panic(err)
-	}
-	defer out.Close()
-
-	// Write the body to file
-	_, err = io.Copy(out, resp.Body)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func GenerateRandomString() string {
-	rand.Seed(time.Now().UnixNano())
-	chars := []rune(
-		"abcdefghijklmnopqrstuvwxyz" +
-			"0123456789")
-	length := 8
-	var b strings.Builder
-	for i := 0; i < length; i++ {
-		b.WriteRune(chars[rand.Intn(len(chars))])
-	}
-	str := b.String() // E.g. "ExcbsVQs"
-
-	return str
-}
-
-func CsvtoTxt(existingCsv string, newTxt string) {
-	var subDomains []string
-
-	file, err := os.Open(existingCsv)
+	bodyBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-	reader := csv.NewReader(file)
-	records, _ := reader.ReadAll()
-	for _, domain := range records {
-		for _, subdomain := range domain {
-			subDomains = append(subDomains, subdomain)
+	subDomains := strings.Split(string(bodyBytes), ",") //csv format to txt
+
+	tmpFile, err := ioutil.TempFile(os.TempDir(), "massdns-")
+	if err != nil {
+		log.Fatal("Cannot create temporary file", err)
+	}
+	defer os.Remove(tmpFile.Name())
+
+	for _, data := range subDomains {
+		text := []byte(data + "\n")
+		if _, err = tmpFile.Write(text); err != nil {
+			log.Fatal("Failed to write to temporary file", err)
 		}
 	}
 
-	newFile, err := os.OpenFile(newTxt, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-
-	if err != nil {
-		log.Fatalf("failed creating file: %s", err)
-	}
-
-	datawriter := bufio.NewWriter(newFile)
-
-	for _, data := range subDomains {
-		_, _ = datawriter.WriteString(data + "\n")
-	}
-
-	datawriter.Flush()
-	newFile.Close()
-
+	MassDns(tmpFile.Name())
 }
 
+//ReadFile reads the file and saves to an array
 func ReadFile(filePath string) []string {
 	file, err := os.Open(filePath)
 	var content []string
@@ -145,15 +107,15 @@ func ReadFile(filePath string) []string {
 	return content
 }
 
-//Subdomain to ip
+//MassDns Execute MassDNS
 func MassDns(subdomains string) {
+
 	path := "/app/massdns"
 	cmd := exec.Command(path+"/bin/massdns", "-r", path+"/lists/resolvers.txt", subdomains, "-o", "S", "-w", subdomains+".massdns")
 
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
-
 	cmd.Wait()
 
 	content := ReadFile(subdomains + ".massdns")
@@ -175,8 +137,6 @@ func main() {
 
 	flag.Parse()
 
-	randomFile := GenerateRandomString() + ".csv"
-
 	// this is to ignore the cert
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
@@ -184,8 +144,6 @@ func main() {
 	jwt := Auth(*url, *authApi, *username, *password)
 	// Get the token to allow us send auth request
 	token := GetToken(jwt)
-	// Export subdomains to a file
-	ExportSubdomains(*url, *subdomainApi, token, "/tmp/"+randomFile)
-	CsvtoTxt("/tmp/"+randomFile, "/tmp/"+randomFile+".txt")
-	MassDns("/tmp/" + randomFile + ".txt")
+	// Export subdomains to a file & run massdns
+	ExportSubdomains(*url, *subdomainApi, token)
 }

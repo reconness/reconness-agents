@@ -1,6 +1,6 @@
 using ReconNess.Core.Models;
 
-var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"([a-z-_A-Z0-9.]+)\s.*\s([0-9.]+)");
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"([a-z-_A-Z0-9.]+).\s.*\s([0-9.]+)");
 if (match.Success)
 {
     return new ScriptOutput { Subdomain = match.Groups[1].Value, Ip = match.Groups[2].Value };
