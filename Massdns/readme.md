@@ -1,6 +1,6 @@
 ## Massdns command
 
-using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
+Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
 
 If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
 
