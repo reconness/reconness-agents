@@ -91,6 +91,11 @@ RUN apt-get install -y python-dnspython
 RUN git clone https://github.com/guelfoweb/knock
 RUN cd knock && python setup.py install
 
+# To allow run Massdns inside the docker
+RUN apt-get install -y build-essential
+RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
+RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/MassdnsWrapper.go
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

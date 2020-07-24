@@ -6,6 +6,12 @@ Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, y
 subfinder -d '{{domain}}'
 ```
 
+## Subfinder Command for Docker
+
+```
+cd /root/go/bin/ && ./subfinder -d {{domain}}
+```
+
 ## Subfinder Script
 
 Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Subfinder/Script)
@@ -26,10 +32,4 @@ RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile && go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 
 # -------- End Agents dependencies -------- 
-```
-
-## Subfinder Command for Docker
-
-```
-cd /root/go/bin/ && ./subfinder -d {{domain}}
 ```

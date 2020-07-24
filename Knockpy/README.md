@@ -8,6 +8,12 @@ If we have knockpy in the folder /app/knock/
 python /app/knock/knockpy/knockpy.py {{rootDomain}}
 ```
 
+## Knockpy Command for Docker
+ 
+```
+python /app/knock/knockpy/knockpy.py {{rootDomain}}
+```
+
 ## Knockpy Script
 
 Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Knockpy/Script)
@@ -24,10 +30,4 @@ RUN git clone https://github.com/guelfoweb/knock
 RUN cd knock && python setup.py install
 
 # -------- End Agents dependencies -------- 
-```
-
-## Knockpy Command for Docker
- 
-```
-python /app/knock/knockpy/knockpy.py {{rootDomain}}
 ```
