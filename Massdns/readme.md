@@ -5,13 +5,13 @@ Using {{target}} ReconNess replaces {{target}} for the target and {{rootDomain}}
 If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
 
 ```
-cd ~/Desktop/MassdnsWrapper && /usr/local/go/bin/go run MassdnsWrapper.go  -o "-t A --ignore --norecurse --predictable" -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+cd ~/Desktop/MassdnsWrapper && /usr/local/go/bin/go run MassdnsWrapper.go -o "-t A --ignore --norecurse --predictable" -b http://localhost -u {{userName}} -p {{password}} -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
 ```
 
 ## Massdns Command for Docker
 
 ```
-/usr/local/go/bin/go run MassdnsWrapper.go  -o "-t A --ignore --norecurse --predictable" -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+/usr/local/go/bin/go run MassdnsWrapper.go -o "-t A --ignore --norecurse --predictable" -b http://localhost -u {{userName}} -p {{password}} -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
 ```
 
 ## Massdns Script
