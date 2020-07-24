@@ -48,7 +48,7 @@ func GetToken(jwt string) string {
 }
 
 //ExportSubdomains exports subdomains to a temporary file
-func ExportSubdomains(url string, subdomainApi string, token string) {
+func ExportSubdomains(url string, subdomainApi string, token string, extraArguments string) {
 
 	req, err := http.NewRequest("GET", url+"/"+subdomainApi, nil)
 	req.Header.Set("Authorization", "Bearer "+token)
@@ -80,7 +80,7 @@ func ExportSubdomains(url string, subdomainApi string, token string) {
 		}
 	}
 
-	MassDns(tmpFile.Name())
+	MassDns(tmpFile.Name(), extraArguments)
 }
 
 //ReadFile reads the file and saves to an array
@@ -108,14 +108,25 @@ func ReadFile(filePath string) []string {
 }
 
 //MassDns Execute MassDNS
-func MassDns(subdomains string) {
-
+func MassDns(subdomains string, extraArguments string) {
+	
 	path := "/app/massdns"
-	cmd := exec.Command(path+"/bin/massdns", "-r", path+"/lists/resolvers.txt", subdomains, "-o", "S", "-w", subdomains+".massdns")
+
+	optArguments := strings.Fields(extraArguments)
+	arguments := []string {path+"/bin/massdns", "-r", path+"/lists/resolvers.txt", "-o", "S", subdomains, "-w", subdomains+".massdns" }
+	
+	if len(optArguments) > 0 {
+		for _, optArg := range optArguments {
+			arguments = append(arguments, optArg)
+		}
+	}
+
+	cmd := exec.Command(arguments[0], arguments[1:]...)
 
 	if err := cmd.Start(); err != nil {
 		log.Fatal(err)
 	}
+
 	cmd.Wait()
 
 	content := ReadFile(subdomains + ".massdns")
@@ -132,18 +143,31 @@ func main() {
 	username := flag.String("u", "", "Username")
 	password := flag.String("p", "", "Password")
 
-	authApi := flag.String("a", "", "Auth API")
 	subdomainApi := flag.String("s", "", "Subdomain API")
+        optArgs := flag.String("o", "", "Optional arguments used in Massdns -r, -o, -s and -w are already used. Make sure to put it in qoutes e.g \"--type A -c 3\"")
 
 	flag.Parse()
+	
+	if *username == "" {
+		fmt.Println("Please provide a username")
+		os.Exit(1)
+	} else if *password == "" {
+		fmt.Println("Please provide a password")
+                os.Exit(1)
+	} else if *subdomainApi == "" {
+		fmt.Println("Please provide a subdomain API endpoint")
+                os.Exit(1)
+	}
 
+	authApi := "api/Auth/Login"
+	        
 	// this is to ignore the cert
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
 	// Do the authentication and obtain the jwt
-	jwt := Auth(*url, *authApi, *username, *password)
+	jwt := Auth(*url, authApi, *username, *password)
 	// Get the token to allow us send auth request
 	token := GetToken(jwt)
 	// Export subdomains to a file & run massdns
-	ExportSubdomains(*url, *subdomainApi, token)
+	ExportSubdomains(*url, *subdomainApi, token, *optArgs)
 }
