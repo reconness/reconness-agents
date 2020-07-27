@@ -184,6 +184,17 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
 			"repository": "https://github.com/tomnomnom/waybackurls"
+		},
+{
+			"name": "Gau",
+			"category": "Agents Dir Discovery",
+			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./gau | grep '^https://{{domain}}'",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gau/Script",
+			"repository": "https://github.com/lc/gau
 		}
 	]
 }

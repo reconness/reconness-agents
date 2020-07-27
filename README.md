@@ -23,6 +23,7 @@ These are the list of Agents tested inside the Docker
 - [GoBusterDir](https://github.com/reconness/reconness-agents/tree/master/GoBusterDir)
 - [Dirsearch](https://github.com/reconness/reconness-agents/tree/master/Dirsearch)
 - [Waybackurls](https://github.com/reconness/reconness-agents/tree/master/Waybackurls)
+- [Gau](https://github.com/reconness/reconness-agents/tree/master/Gau)
 
 ### Agents Scan
 
