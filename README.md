@@ -22,6 +22,7 @@ These are the list of Agents tested inside the Docker
 - [ffuf](https://github.com/reconness/reconness-agents/tree/master/Ffuf)
 - [GoBusterDir](https://github.com/reconness/reconness-agents/tree/master/GoBusterDir)
 - [Dirsearch](https://github.com/reconness/reconness-agents/tree/master/Dirsearch)
+- [Waybackurls](https://github.com/reconness/reconness-agents/tree/master/Waybackurls)
 
 ### Agents Scan
 

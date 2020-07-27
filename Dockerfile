@@ -96,6 +96,9 @@ RUN apt-get install -y build-essential
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/MassdnsWrapper.go
 
+# To allow run httprobe inside the docker
+RUN . ~/.profile && go get github.com/tomnomnom/waybackurls
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

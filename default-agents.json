@@ -173,6 +173,17 @@
 			"skipIfRanBefore": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/Script",
 			"repository": "https://github.com/blechschmidt/massdns"
+		},
+		{
+			"name": "Waybackurls",
+			"category": "Agents Dir Discovery",
+			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./waybackurls | grep '^https://{{domain}}'",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
+			"repository": "https://github.com/tomnomnom/waybackurls"
 		}
 	]
 }
