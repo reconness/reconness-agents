@@ -185,7 +185,7 @@
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
 			"repository": "https://github.com/tomnomnom/waybackurls"
 		},
-{
+		{
 			"name": "Gau",
 			"category": "Agents Dir Discovery",
 			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./gau | grep '^https://{{domain}}'",
@@ -194,7 +194,40 @@
 			"onlyIfHasHttpOpen": "true",
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gau/Script",
-			"repository": "https://github.com/lc/gau
+			"repository": "https://github.com/lc/gau"
+		},
+		{
+			"name": "Dnsprobe",
+			"category": "Agents Scan",
+			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./dnsprobe -r A",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dnsprobe/Script",
+			"repository": "https://github.com/projectdiscovery/dnsprobe"
+		},
+		{
+			"name": "Naabu",
+			"category": "Agents Scan",
+			"command": "cd /root/go/bin/ && ./naabu -host {{domain}} -silent",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
+			"repository": "https://github.com/projectdiscovery/naabu"
+		},
+		{
+			"name": "Shuffledns",
+			"category": "Agents Subdomain Enum",
+			"command": "cd /root/go/bin/ && ./shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
+			"repository": "https://github.com/projectdiscovery/shuffledns"
 		}
 	]
 }

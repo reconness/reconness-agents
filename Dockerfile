@@ -102,6 +102,16 @@ RUN . ~/.profile && go get github.com/tomnomnom/waybackurls
 # To allow run gau inside the docker
 RUN . ~/.profile && go get -u -v github.com/lc/gau
 
+# To allow run dnsprobe inside the docker
+RUN . ~/.profile && go get -u -v github.com/projectdiscovery/dnsprobe
+
+# To allow run naabu inside the docker
+RUN . ~/.profile && go get -v github.com/projectdiscovery/naabu/cmd/naabu
+
+# To allow run shuffledns inside the docker
+RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
+RUN . ~/.profile && go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]
