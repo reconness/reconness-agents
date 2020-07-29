@@ -33,6 +33,8 @@ These are the list of Agents tested inside the Docker
 - [Nmap](https://github.com/reconness/reconness-agents/tree/master/Nmap)
 - [Takeover](https://github.com/reconness/reconness-agents/tree/master/Takeover)
 - [Zdns](https://github.com/reconness/reconness-agents/tree/master/Zdns)
+- [Dnsprobe](https://github.com/reconness/reconness-agents/tree/master/Dnsprobe)
+- [Naabu](https://github.com/reconness/reconness-agents/tree/master/Naabu)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)
