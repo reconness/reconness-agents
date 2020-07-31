@@ -1,17 +1,15 @@
 ## Massdns command
 
-Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
-
-If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
+This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddengearz/reconness-universal-wrapper) which must be installed for this agent to work. Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
 
 ```
-cd ~/Desktop/MassdnsWrapper && /usr/local/go/bin/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+/root/go/bin/reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
 ```
 
-## MassDNS Command for Docker
+## Massdns Command for Docker
 
 ```
-/usr/local/go/bin/go run MassdnsWrapper.go -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}
+/root/go/bin/reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
 ```
 
 ## Massdns Dockerfile Entry
@@ -29,8 +27,7 @@ RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
-RUN cd /app && wget https://raw.githubusercontent.com/hiddengearz/reconness-agents/master/Massdns/MassdnsWrapper.go
+RUN cd /app && /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
 ```
 
 # -------- End Agents dependencies -------- 
-```
