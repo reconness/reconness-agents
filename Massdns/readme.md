@@ -3,7 +3,7 @@
 This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddengearz/reconness-universal-wrapper) which must be installed for this agent to work. Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
 
 ```
-/root/go/bin/reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
+./reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
 ```
 
 ## Massdns Command for Docker

@@ -1,17 +1,17 @@
 ## OneForAll Command
 
-Using {{rootDomain}} ReconNess replace {{rootDomain}} for the root domain. Ex: yahoo.com
+This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddengearz/reconness-universal-wrapper) which must be installed for this agent to work. Using {{rootDomain}} ReconNess replace {{rootDomain}} for the root domain. Ex: yahoo.com
 
 If we have OneForAllWrapper in the folder ~/Desktop/OneForAllWrapper/
 
 ```
-cd ~/Desktop/OneForAllWrapper && /usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
+./reconness-universal-wrapper exec "python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run" --silent
 ```
 
 ## OneForAll Command for Docker
 
 ```
-/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}} 
+/root/go/bin/reconness-universal-wrapper exec "python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run" --silent
 ```
 
 ## OneForAll Script
@@ -33,10 +33,10 @@ RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
 RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile
-RUN wget https://raw.githubusercontent.com/hiddengearz/reconness-agents/master/OneForAll/OneForAllWrapper.go
 RUN git clone https://github.com/shmilylty/OneForAll.git
 RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
+RUN cd /app && /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
 
 # -------- End Agents dependencies -------- 
 ```
