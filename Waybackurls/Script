@@ -1,0 +1,1 @@
+return new ReconNess.Core.Models.ScriptOutput { HttpDirectory = lineInput };

@@ -1,0 +1,14 @@
+using ReconNess.Core.Models;
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @":(\d{1,5})");
+if (match.Success)
+{
+    return new ScriptOutput 
+    { 
+        Service = match.Groups[1].Value,
+        Port = int.Parse(match.Groups[1].Value)
+    };
+}
+ 
+return new ScriptOutput();
+

@@ -39,8 +39,8 @@ RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile && go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 
 # To allow run amass inside the docker
-RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.6.1/amass_v3.6.1_linux_amd64.zip ; unzip amass_v3.6.1_linux_amd64.zip
-RUN mv /tmp/amass_v3.6.1_linux_amd64/amass /bin
+RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amass_linux_amd64.zip ; unzip amass_linux_amd64.zip
+RUN mv /tmp/amass_linux_amd64/amass /bin
 
 # To allow run gobuster inside the docker
 RUN . ~/.profile && go get github.com/OJ/gobuster
@@ -75,6 +75,42 @@ RUN apt-get update && apt-get install -y nmap
 # To allow run takeover inside the docker
 RUN git clone https://github.com/m4ll0k/takeover.git
 RUN cd takeover && python3 setup.py install
+
+# To allow run OneForAll inside the docker
+RUN wget https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/OneForAllWrapper.go
+RUN git clone https://github.com/shmilylty/OneForAll.git
+RUN python3 -m pip install -U pip setuptools wheel
+RUN pip3 install -r /app/OneForAll/requirements.txt
+
+# To allow run zdns inside the docker
+RUN git clone https://github.com/zmap/zdns.git
+RUN . ~/.profile && cd zdns && go build
+
+# To allow run knockpy the docker
+RUN apt-get install -y python-dnspython
+RUN git clone https://github.com/guelfoweb/knock
+RUN cd knock && python setup.py install
+
+# To allow run Massdns inside the docker
+RUN apt-get install -y build-essential
+RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
+RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/MassdnsWrapper.go
+
+# To allow run waybackurls inside the docker
+RUN . ~/.profile && go get github.com/tomnomnom/waybackurls
+
+# To allow run gau inside the docker
+RUN . ~/.profile && go get -u -v github.com/lc/gau
+
+# To allow run dnsprobe inside the docker
+RUN . ~/.profile && go get -u -v github.com/projectdiscovery/dnsprobe
+
+# To allow run naabu inside the docker
+RUN . ~/.profile && go get -v github.com/projectdiscovery/naabu/cmd/naabu
+
+# To allow run shuffledns inside the docker
+RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
+RUN . ~/.profile && go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
 
 # -------- End Agents dependencies -------- 
 
