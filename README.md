@@ -13,12 +13,18 @@ These are the list of Agents tested inside the Docker
 - [GoBusterDns](https://github.com/reconness/reconness-agents/tree/master/GoBusterDns)
 - [Sublist3r](https://github.com/reconness/reconness-agents/tree/master/Sublist3r)
 - [Findomain](https://github.com/reconness/reconness-agents/tree/master/Findomain)
+- [OneForAll](https://github.com/reconness/reconness-agents/tree/master/OneForAll)
+- [Knockpy](https://github.com/reconness/reconness-agents/tree/master/Knockpy)
+- [Massdns](https://github.com/reconness/reconness-agents/tree/master/Massdns)
+- [Shuffledns](https://github.com/reconness/reconness-agents/tree/master/Shuffledns)
 
 ### Agents Dir Discovery
 
 - [ffuf](https://github.com/reconness/reconness-agents/tree/master/Ffuf)
 - [GoBusterDir](https://github.com/reconness/reconness-agents/tree/master/GoBusterDir)
 - [Dirsearch](https://github.com/reconness/reconness-agents/tree/master/Dirsearch)
+- [Waybackurls](https://github.com/reconness/reconness-agents/tree/master/Waybackurls)
+- [Gau](https://github.com/reconness/reconness-agents/tree/master/Gau)
 
 ### Agents Scan
 
@@ -26,7 +32,15 @@ These are the list of Agents tested inside the Docker
 - [Ping](https://github.com/reconness/reconness-agents/tree/master/Ping)
 - [Nmap](https://github.com/reconness/reconness-agents/tree/master/Nmap)
 - [Takeover](https://github.com/reconness/reconness-agents/tree/master/Takeover)
+- [Zdns](https://github.com/reconness/reconness-agents/tree/master/Zdns)
+- [Dnsprobe](https://github.com/reconness/reconness-agents/tree/master/Dnsprobe)
+- [Naabu](https://github.com/reconness/reconness-agents/tree/master/Naabu)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)
+
 [@maverickNerd](https://github.com/maverickNerd)
+
+[@hiddengearz](https://github.com/hiddengearz)
+
+[@d1pakda5](https://github.com/d1pakda5)

@@ -1,0 +1,19 @@
+using ReconNess.Core.Models;
+
+if (lineInputCount < 17)
+{
+	return new ScriptOutput();
+}
+
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*(\d{1,3})?\s*([a-z]*)\s*(([a-zA-Z0-9][a-zA-Z0-9-_]*\.)*[a-zA-Z0-9]*[a-zA-Z0-9-_]*[[a-zA-Z0-9]+)");
+if (match.Success && match.Groups.Count > 4)
+{
+    return new ScriptOutput 
+    { 
+        Ip = match.Groups[1].Value,
+        Subdomain = match.Groups.Count == 5 ? match.Groups[3].Value : match.Groups[4].Value,
+        Note = lineInput
+    };
+}
+ 
+return new ScriptOutput();
