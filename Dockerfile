@@ -31,8 +31,8 @@ COPY --from=build /dist ./
 
 # To allow run subfinder inside the docker
 RUN apt-get update && apt-get install -y git wget unzip
-RUN wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz
+RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
 RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
 RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
