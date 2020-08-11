@@ -2,7 +2,7 @@
 	"agents": [{
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
-			"command": "cd /root/go/bin/ && ./subfinder -d {{rootDomain}}",
+			"command": "/root/go/bin/subfinder -d {{rootDomain}}",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -24,7 +24,7 @@
 		{
 			"name": "GoBusterDns",
 			"category": "Agents Subdomain Enum",
-			"command": "cd /root/go/bin/ && ./gobuster dns -d {{rootDomain}} -w /app/Subdomain.txt --wildcard -z",
+			"command": "/root/go/bin/gobuster dns -d {{rootDomain}} -w /app/all.txt --wildcard -z",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -57,7 +57,7 @@
 		{
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
-			"command": "cd /root/go/bin/ && ./ffuf -w /app/dicc.txt -u https://{{domain}}/FUZZ",
+			"command": "/root/go/bin/ffuf -w /app/content_discovery_all.txt -u https://{{domain}}/FUZZ",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
@@ -68,7 +68,7 @@
 		{
 			"name": "GoBusterDir",
 			"category": "Agents Dir Discovery",
-			"command": "cd /root/go/bin/ && ./gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txtcd /root/go/bin/ && ./gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txt -z -k -l -r --wildcard",
+			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txt -z -k -l -r --wildcard",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
@@ -79,7 +79,7 @@
 		{
 			"name": "Dirsearch",
 			"category": "Agents Dir Discovery",
-			"command": "cd /app/dirsearch && ./dirsearch.py -u {{domain}} -e php -r",
+			"command": "/app/dirsearch/dirsearch.py -u {{domain}} -e php -r",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
@@ -90,7 +90,7 @@
 		{
 			"name": "Httprobe",
 			"category": "Agents Scan",
-			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./httprobe",
+			"command": "echo '{{domain}}' | /root/go/bin/httprobe",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -144,7 +144,7 @@
 		{
 			"name": "Zdns",
 			"category": "Agents Scan",
-			"command": ". ~/.profile &&  cd /app/zdns/zdns && echo '{{domain}},8.8.8.8' | go run main.go A",
+			"command": "cd /app/zdns/zdns && echo '{{domain}},8.8.8.8' | /usr/local/go/bin/go run main.go A",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -177,7 +177,7 @@
 		{
 			"name": "Waybackurls",
 			"category": "Agents Dir Discovery",
-			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./waybackurls | grep '^https://{{domain}}'",
+			"command": "echo '{{domain}}' | /root/go/bin/waybackurls | grep '^https://{{domain}}'",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
@@ -188,7 +188,7 @@
 		{
 			"name": "Gau",
 			"category": "Agents Dir Discovery",
-			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./gau | grep '^https://{{domain}}'",
+			"command": "echo '{{domain}}' | /root/go/bin/gau | grep '^https://{{domain}}'",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "true",
 			"onlyIfHasHttpOpen": "true",
@@ -199,7 +199,7 @@
 		{
 			"name": "Dnsprobe",
 			"category": "Agents Scan",
-			"command": "cd /root/go/bin/ && echo '{{domain}}' | ./dnsprobe -r A",
+			"command": "echo '{{domain}}' | /root/go/bin/dnsprobe -r A",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -210,7 +210,7 @@
 		{
 			"name": "Naabu",
 			"category": "Agents Scan",
-			"command": "cd /root/go/bin/ && ./naabu -host {{domain}} -silent",
+			"command": "/root/go/bin/naabu -host {{domain}} -silent",
 			"isBySubdomain": "true",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -221,7 +221,7 @@
 		{
 			"name": "Shuffledns",
 			"category": "Agents Subdomain Enum",
-			"command": "cd /root/go/bin/ && ./shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
+			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
