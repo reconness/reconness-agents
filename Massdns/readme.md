@@ -25,13 +25,10 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Ma
 # -------- Agents dependencies -------- 
 
 # To allow run Massdns inside the docker
+
 RUN apt-get update && apt-get install -y git build-essential wget
-RUN wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz
-RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
-RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
-RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
-RUN . ~/.profile
+RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/MassdnsWrapper.go
 
