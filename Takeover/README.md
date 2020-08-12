@@ -22,6 +22,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Ta
 # -------- Agents dependencies -------- 
 
 # To allow run takeover inside the docker
+
 RUN apt-get update && apt-get install -y git python3 python3-pip wget
 RUN git clone https://github.com/m4ll0k/takeover.git
 RUN cd takeover && python3 setup.py install
