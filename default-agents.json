@@ -55,6 +55,50 @@
 			"repository": "https://github.com/Edu4rdSHL/findomain"
 		},
 		{
+			"name": "Massdns",
+			"category": "Agents Subdomain Enum",
+			"command": "/usr/local/go/bin/go run MassdnsWrapper.go -o \"-t A --ignore --norecurse --predictable\" -b http://localhost -u {{userName}} -p {{password}} -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/Script",
+			"repository": "https://github.com/blechschmidt/massdns"
+		},
+		{
+			"name": "OneForAll",
+			"category": "Agents Subdomain Enum",
+			"command": "/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script",
+			"repository": "https://github.com/shmilylty/OneForAll"
+		},
+		{
+			"name": "Knockpy",
+			"category": "Agents Subdomain Enum",
+			"command": "python /app/knock/knockpy/knockpy.py {{rootDomain}}",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Knockpy/Script",
+			"repository": "https://github.com/guelfoweb/knock"
+		},
+		{
+			"name": "Shuffledns",
+			"category": "Agents Subdomain Enum",
+			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
+			"isBySubdomain": "false",
+			"onlyIfIsAlive": "false",
+			"onlyIfHasHttpOpen": "false",
+			"skipIfRanBefore": "false",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
+			"repository": "https://github.com/projectdiscovery/shuffledns"
+		},
+		{
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
 			"command": "/root/go/bin/ffuf -w /app/content_discovery_all.txt -u https://{{domain}}/FUZZ",
@@ -86,6 +130,28 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dirsearch/Script",
 			"repository": "https://github.com/maurosoria/dirsearch"
+		},
+		{
+			"name": "Waybackurls",
+			"category": "Agents Dir Discovery",
+			"command": "echo '{{domain}}' | /root/go/bin/waybackurls | grep '^https://{{domain}}'",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
+			"repository": "https://github.com/tomnomnom/waybackurls"
+		},
+		{
+			"name": "Gau",
+			"category": "Agents Dir Discovery",
+			"command": "echo '{{domain}}' | /root/go/bin/gau | grep '^https://{{domain}}'",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gau/Script",
+			"repository": "https://github.com/lc/gau"
 		},
 		{
 			"name": "Httprobe",
@@ -129,18 +195,7 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script",
 			"repository": "https://github.com/m4ll0k/takeover"
-		},
-	        {
-			"name": "OneForAll",
-			"category": "Agents Subdomain Enum",
-			"command": "/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}}",
-			"isBySubdomain": "false",
-			"onlyIfIsAlive": "false",
-			"onlyIfHasHttpOpen": "false",
-			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script",
-			"repository": "https://github.com/shmilylty/OneForAll"
-		},
+		},	        
 		{
 			"name": "Zdns",
 			"category": "Agents Scan",
@@ -151,50 +206,6 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Zdns/Script",
 			"repository": "https://github.com/zmap/zdns"
-		},
-		{
-			"name": "Knockpy",
-			"category": "Agents Subdomain Enum",
-			"command": "python /app/knock/knockpy/knockpy.py {{rootDomain}}",
-			"isBySubdomain": "false",
-			"onlyIfIsAlive": "false",
-			"onlyIfHasHttpOpen": "false",
-			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Knockpy/Script",
-			"repository": "https://github.com/guelfoweb/knock"
-		},
-		{
-			"name": "Massdns",
-			"category": "Agents Subdomain Enum",
-			"command": "/usr/local/go/bin/go run MassdnsWrapper.go  -o \"-t A --ignore --norecurse --predictable\" -b https://localhost -a api/Auth/Login -u <username> -p <password> -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}",
-			"isBySubdomain": "false",
-			"onlyIfIsAlive": "false",
-			"onlyIfHasHttpOpen": "false",
-			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/Script",
-			"repository": "https://github.com/blechschmidt/massdns"
-		},
-		{
-			"name": "Waybackurls",
-			"category": "Agents Dir Discovery",
-			"command": "echo '{{domain}}' | /root/go/bin/waybackurls | grep '^https://{{domain}}'",
-			"isBySubdomain": "true",
-			"onlyIfIsAlive": "true",
-			"onlyIfHasHttpOpen": "true",
-			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
-			"repository": "https://github.com/tomnomnom/waybackurls"
-		},
-		{
-			"name": "Gau",
-			"category": "Agents Dir Discovery",
-			"command": "echo '{{domain}}' | /root/go/bin/gau | grep '^https://{{domain}}'",
-			"isBySubdomain": "true",
-			"onlyIfIsAlive": "true",
-			"onlyIfHasHttpOpen": "true",
-			"skipIfRanBefore": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gau/Script",
-			"repository": "https://github.com/lc/gau"
 		},
 		{
 			"name": "Dnsprobe",
@@ -217,17 +228,6 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
 			"repository": "https://github.com/projectdiscovery/naabu"
-		},
-		{
-			"name": "Shuffledns",
-			"category": "Agents Subdomain Enum",
-			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
-			"isBySubdomain": "false",
-			"onlyIfIsAlive": "false",
-			"onlyIfHasHttpOpen": "false",
-			"skipIfRanBefore": "false",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
-			"repository": "https://github.com/projectdiscovery/shuffledns"
-		}
+		}		
 	]
 }
