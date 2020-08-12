@@ -2,7 +2,7 @@
 	"agents": [{
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
-			"command": "/root/go/bin/subfinder -d {{rootDomain}}",
+			"command": "/root/go/bin/subfinder -d {{rootDomain}} -nW -silent",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
