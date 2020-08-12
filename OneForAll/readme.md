@@ -37,6 +37,7 @@ RUN git clone https://github.com/shmilylty/OneForAll.git
 RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
 RUN cd /app && /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
+RUN cd /root/go/bin/ && ./reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 
 # -------- End Agents dependencies -------- 
 ```

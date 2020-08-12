@@ -37,6 +37,7 @@ RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
 RUN . ~/.profile
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 RUN cd /app && /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
+RUN cd /root/go/bin/ && ./reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 ```
 
 
