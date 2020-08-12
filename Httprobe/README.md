@@ -9,7 +9,7 @@ echo '{{domain}}' | httprobe
 ## Httprobe Command for Docker
 
 ```
-cd /root/go/bin/ && echo '{{domain}}' | ./httprobe
+echo '{{domain}}' | /root/go/bin/httprobe
 ```
 
 ## Httprobe Script
@@ -22,14 +22,11 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Ht
 # -------- Agents dependencies -------- 
 
 # To allow run httprobe inside the docker
-RUN apt-get update && apt-get install -y git
-RUN apt-get install -y wget
-RUN wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.13.4.linux-amd64.tar.gz
-RUN echo 'export GOROOT=/usr/local/go' >> ~/.profile
-RUN echo 'export GOPATH=$HOME/go'	>> ~/.profile
-RUN echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.profile
-RUN . ~/.profile && go get github.com/tomnomnom/httprobe
+
+RUN apt-get update && apt-get install -y git wget
+RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
+RUN /usr/local/go/bin/go get github.com/tomnomnom/httprobe
 
 # -------- End Agents dependencies --------  
 ```

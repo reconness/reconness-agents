@@ -24,8 +24,8 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Kn
 # -------- Agents dependencies -------- 
 
 # To allow run knockpy the docker
-RUN apt-get install -y git
-RUN apt-get install -y python2.7 python-pip python-dnspython
+
+RUN apt-get update && apt-get install -y git python2.7 python-pip python-dnspython
 RUN git clone https://github.com/guelfoweb/knock
 RUN cd knock && python setup.py install
 

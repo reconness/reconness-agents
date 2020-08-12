@@ -6,7 +6,9 @@ if (match.Success)
     return new ScriptOutput 
     { 
         Service = match.Groups[1].Value,
-        Port = int.Parse(match.Groups[1].Value)
+        Port = int.Parse(match.Groups[1].Value),
+        IsAlive = true,
+        HasHttpOpen = "80".Equals(match.Groups[1].Value) || "443".Equals(match.Groups[1].Value)
     };
 }
  

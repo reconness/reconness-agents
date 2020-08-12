@@ -8,7 +8,7 @@ if (lineInputCount < 5)
 var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"(.*?)\/tcp\s*open\s*(.*?)$");
 if (match.Success && match.Groups.Count == 3)
 {
-    var scriptOutput = new ScriptOutput { Service = match.Groups[2].Value, Port = int.Parse(match.Groups[1].Value) };
+    var scriptOutput = new ScriptOutput { Service = match.Groups[2].Value, Port = int.Parse(match.Groups[1].Value), IsAlive = true };
     if (scriptOutput.Service == "http" || scriptOutput.Service == "https") 
     {
         scriptOutput.HasHttpOpen = true;

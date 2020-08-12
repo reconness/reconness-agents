@@ -8,7 +8,7 @@ python3 dirsearch.py -u {{domain}} -e php -r
 ## Dirsearch Command for Docker
 
 ```
-cd /app/dirsearch && ./dirsearch.py -u {{domain}} -e php -r
+/app/dirsearch/dirsearch.py -u {{domain}} -e php -r
 ```
 
 ## Dirsearch Script

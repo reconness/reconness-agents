@@ -18,8 +18,8 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Su
 # -------- Agents dependencies -------- 
 
 # To allow run sublist3r inside the docker
-RUN apt-get install -y git
-RUN apt-get install -y python2.7 python-pip
+
+RUN apt-get update && apt-get install -y git python2.7 python-pip
 RUN git clone https://github.com/aboul3la/Sublist3r.git
 RUN cd Sublist3r && pip install -r requirements.txt
 

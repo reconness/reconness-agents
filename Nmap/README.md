@@ -16,6 +16,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Nm
 # -------- Agents dependencies -------- 
 
 # To allow run nmap inside the docker
+
 RUN apt-get update && apt-get install -y nmap
 
 # -------- End Agents dependencies -------- 
