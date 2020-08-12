@@ -7,7 +7,7 @@ if (lineInputCount < 13)
 
 if (lineInput.Contains("service found! Potential domain takeover found"))
 {
-    return new ScriptOutput { Takeover = true };
+    return new ScriptOutput { Takeover = true, IsAlive = true };
 }
 
 return new ScriptOutput();
