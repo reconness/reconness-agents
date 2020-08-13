@@ -37,13 +37,13 @@ COPY --from=build /dist ./
 #
 # RUN /root/go/bin/reconness-universal-wrapper setup -u myusername -p mypasssord -s http://mydomainorip.com
 #################################################################################################################################################
+RUN apt-get update && apt-get install -y git wget unzip
+RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
 RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 
 # To allow run subfinder inside the docker
-RUN apt-get update && apt-get install -y git wget unzip
-RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN /usr/local/go/bin/go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 
 # To allow run amass inside the docker
