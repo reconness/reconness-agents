@@ -29,6 +29,17 @@ COPY --from=build /dist ./
 
 # -------- Agents dependencies -------- 
 
+# To allow run the wrapper 
+################################################################################################################################################
+# Change <reconness username> <reconness password> <reconness.mydomain.com> with your username, password and domain where reconness is running.
+#
+# Ex.
+#
+# RUN /root/go/bin/reconness-universal-wrapper setup -u myusername -p mypasssord -s http://mydomainorip.com
+#################################################################################################################################################
+RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
+RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
+
 # To allow run subfinder inside the docker
 RUN apt-get update && apt-get install -y git wget unzip
 RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
@@ -74,7 +85,6 @@ RUN git clone https://github.com/m4ll0k/takeover.git
 RUN cd takeover && python3 setup.py install
 
 # To allow run OneForAll inside the docker
-RUN wget https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/OneForAllWrapper.go
 RUN git clone https://github.com/shmilylty/OneForAll.git
 RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
@@ -91,7 +101,6 @@ RUN cd knock && python setup.py install
 # To allow run Massdns inside the docker
 RUN apt-get install -y build-essential
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
-RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/MassdnsWrapper.go
 
 # To allow run waybackurls inside the docker
 RUN /usr/local/go/bin/go get github.com/tomnomnom/waybackurls
