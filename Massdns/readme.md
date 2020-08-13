@@ -1,6 +1,6 @@
 ## Massdns command
 
-This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddengearz/reconness-universal-wrapper) which must be installed for this agent to work. Using {{target}} ReconNess replaces {{{target}}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
+This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddengearz/reconness-universal-wrapper) which must be installed for this agent to work. Using {{target}} ReconNess replaces {{target}} for the target and {{rootDomainName}} for the root domain. Ex: yahoo.com
 
 
 If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
