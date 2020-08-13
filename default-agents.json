@@ -57,7 +57,7 @@
 		{
 			"name": "Massdns",
 			"category": "Agents Subdomain Enum",
-			"command": "/usr/local/go/bin/go run MassdnsWrapper.go -o \"-t A --ignore --norecurse --predictable\" -b http://localhost -u {{userName}} -p {{password}} -s api/targets/exportSubdomains/{{target}}/{{rootDomain}}",
+			"command": "/root/go/bin/reconness-universal-wrapper exec \"/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S\" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
@@ -68,7 +68,7 @@
 		{
 			"name": "OneForAll",
 			"category": "Agents Subdomain Enum",
-			"command": "/usr/local/go/bin/go run OneForAllWrapper.go -d {{rootDomain}}",
+			"command": "/root/go/bin/reconness-universal-wrapper exec \"python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run\" --silent",
 			"isBySubdomain": "false",
 			"onlyIfIsAlive": "false",
 			"onlyIfHasHttpOpen": "false",
