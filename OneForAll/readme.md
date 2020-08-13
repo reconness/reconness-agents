@@ -5,7 +5,7 @@ This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddeng
 If we have OneForAllWrapper in the folder ~/Desktop/OneForAllWrapper/
 
 ```
-./reconness-universal-wrapper exec "python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run" --silent
+cd ~/Desktop/OneForAllWrapper/ && ./reconness-universal-wrapper exec "python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run" --silent
 ```
 
 ## OneForAll Command for Docker
