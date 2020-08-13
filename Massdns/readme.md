@@ -6,7 +6,7 @@ This agent utilizes the [Reconness Unviersal Wrapper](https://github.com/hiddeng
 If we have MassdnsWrapper in the folder ~/Desktop/MassdnsWrapper/
 
 ```
-./reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
+cd ~/Desktop/MassdnsWrapper/ && ./reconness-universal-wrapper exec "/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent
 ```
 
 ## Massdns Command for Docker
