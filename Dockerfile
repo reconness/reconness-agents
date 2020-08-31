@@ -118,6 +118,10 @@ RUN /usr/local/go/bin/go get -v github.com/projectdiscovery/naabu/cmd/naabu
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
 RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
 
+# To allow run corsy inside the docker
+RUN git clone https://github.com/s0md3v/Corsy.git
+RUN cd Corsy && pip3 install -r requirements.txt
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

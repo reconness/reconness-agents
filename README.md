@@ -35,6 +35,7 @@ These are the list of Agents tested inside the Docker
 - [Zdns](https://github.com/reconness/reconness-agents/tree/master/Zdns)
 - [Dnsprobe](https://github.com/reconness/reconness-agents/tree/master/Dnsprobe)
 - [Naabu](https://github.com/reconness/reconness-agents/tree/master/Naabu)
+- [Corsy](https://github.com/reconness/reconness-agents/tree/master/Corsy)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)

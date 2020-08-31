@@ -228,6 +228,17 @@
 			"skipIfRanBefore": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
 			"repository": "https://github.com/projectdiscovery/naabu"
-		}		
+		},
+		{
+			"name": "Corsy",
+			"category": "Agents Scan",
+			"command": "python3 /app/Corsy/corsy.py -u https://{{domain}}",
+			"isBySubdomain": "true",
+			"onlyIfIsAlive": "true",
+			"onlyIfHasHttpOpen": "true",
+			"skipIfRanBefore": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Corsy/Script",
+			"repository": "https://github.com/s0md3v/Corsy"
+		}			
 	]
 }
