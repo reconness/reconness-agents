@@ -26,7 +26,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Su
 RUN apt-get update && apt-get install -y git wget
 RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
-RUN /usr/local/go/bin/go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
+RUN /usr/local/go/bin/go get -u github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 
 # -------- End Agents dependencies -------- 
 ```
