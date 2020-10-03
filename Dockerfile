@@ -44,7 +44,7 @@ RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapp
 RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 
 # To allow run subfinder inside the docker
-RUN /usr/local/go/bin/go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
+RUN /usr/local/go/bin/go get -u github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 
 # To allow run amass inside the docker
 RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amass_linux_amd64.zip ; unzip amass_linux_amd64.zip
@@ -112,7 +112,7 @@ RUN /usr/local/go/bin/go get -u -v github.com/lc/gau
 RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/dnsprobe
 
 # To allow run naabu inside the docker
-RUN /usr/local/go/bin/go get -v github.com/projectdiscovery/naabu/cmd/naabu
+RUN /usr/local/go/bin/go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
 
 # To allow run shuffledns inside the docker
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
