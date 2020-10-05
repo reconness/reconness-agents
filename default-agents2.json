@@ -3,9 +3,7 @@
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/subfinder -d {{rootDomain}} -nW -silent",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script",
 			"repository": "https://github.com/projectdiscovery/subfinder"
 		},
@@ -23,9 +21,7 @@
 			"name": "GoBusterDns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/gobuster dns -d {{rootDomain}} -w /app/all.txt --wildcard -z",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDns/Script",
 			"repository": "https://github.com/OJ/gobuster#dns-mode-help"
 		},
@@ -33,9 +29,7 @@
 			"name": "Sublist3r",
 			"category": "Agents Subdomain Enum",
 			"command": "python /app/Sublist3r/sublist3r.py -d {{rootDomain}}",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Sublist3r/Script",
 			"repository": "https://github.com/aboul3la/Sublist3r"
 		},
@@ -43,9 +37,7 @@
 			"name": "Findomain",
 			"category": "Agents Subdomain Enum",
 			"command": "./findomain-linux -t {{rootDomain}} -r",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Findomain/Script",
 			"repository": "https://github.com/Edu4rdSHL/findomain"
 		},
@@ -53,9 +45,7 @@
 			"name": "Massdns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/reconness-universal-wrapper exec \"/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S\" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Massdns/Script",
 			"repository": "https://github.com/blechschmidt/massdns"
 		},
@@ -63,9 +53,7 @@
 			"name": "OneForAll",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/reconness-universal-wrapper exec \"python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run\" --silent",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/OneForAll/Script",
 			"repository": "https://github.com/shmilylty/OneForAll"
 		},
@@ -73,9 +61,7 @@
 			"name": "Knockpy",
 			"category": "Agents Subdomain Enum",
 			"command": "python /app/knock/knockpy/knockpy.py {{rootDomain}}",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Knockpy/Script",
 			"repository": "https://github.com/guelfoweb/knock"
 		},
@@ -83,9 +69,7 @@
 			"name": "Shuffledns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
-			"isByTarget": "false",
 			"isByRootDomain": "true",
-			"isBySubdomain": "false",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
 			"repository": "https://github.com/projectdiscovery/shuffledns"
 		},
@@ -93,8 +77,6 @@
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
 			"command": "/root/go/bin/ffuf -w /app/content_discovery_all.txt -u https://{{domain}}/FUZZ",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script",
 			"repository": "https://github.com/ffuf/ffuf"
@@ -103,8 +85,6 @@
 			"name": "GoBusterDir",
 			"category": "Agents Dir Discovery",
 			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txt -z -k -l -r --wildcard",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script",
 			"repository": "https://github.com/OJ/gobuster#dir-mode-options"
@@ -113,8 +93,6 @@
 			"name": "Dirsearch",
 			"category": "Agents Dir Discovery",
 			"command": "/app/dirsearch/dirsearch.py -u {{domain}} -e php -r",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dirsearch/Script",
 			"repository": "https://github.com/maurosoria/dirsearch"
@@ -123,8 +101,6 @@
 			"name": "Waybackurls",
 			"category": "Agents Dir Discovery",
 			"command": "echo '{{domain}}' | /root/go/bin/waybackurls | grep '^https://{{domain}}'",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Waybackurls/Script",
 			"repository": "https://github.com/tomnomnom/waybackurls"
@@ -133,8 +109,6 @@
 			"name": "Gau",
 			"category": "Agents Dir Discovery",
 			"command": "echo '{{domain}}' | /root/go/bin/gau | grep '^https://{{domain}}'",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gau/Script",
 			"repository": "https://github.com/lc/gau"
@@ -143,8 +117,6 @@
 			"name": "Httprobe",
 			"category": "Agents Scan",
 			"command": "echo '{{domain}}' | /root/go/bin/httprobe",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Httprobe/Script",
 			"repository": "https://github.com/tomnomnom/httprobe"
@@ -153,8 +125,6 @@
 			"name": "Ping",
 			"category": "Agents Scan",
 			"command": "ping {{domain}} -c 1",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ping/Script"
 		},
@@ -162,8 +132,6 @@
 			"name": "Nmap",
 			"category": "Agents Scan",
 			"command": "nmap -T4 {{domain}}",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Nmap/Script",
 			"repository": "https://github.com/nmap/nmap"
@@ -172,8 +140,6 @@
 			"name": "Takeover",
 			"category": "Agents Scan",
 			"command": "python3 /app/takeover/takeover.py -d {{domain}} -v",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Takeover/Script",
 			"repository": "https://github.com/m4ll0k/takeover"
@@ -182,8 +148,6 @@
 			"name": "Zdns",
 			"category": "Agents Scan",
 			"command": "cd /app/zdns/zdns && echo '{{domain}},8.8.8.8' | /usr/local/go/bin/go run main.go A",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Zdns/Script",
 			"repository": "https://github.com/zmap/zdns"
@@ -192,8 +156,6 @@
 			"name": "Dnsprobe",
 			"category": "Agents Scan",
 			"command": "echo '{{domain}}' | /root/go/bin/dnsprobe -r A",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dnsprobe/Script",
 			"repository": "https://github.com/projectdiscovery/dnsprobe"
@@ -202,8 +164,6 @@
 			"name": "Naabu",
 			"category": "Agents Scan",
 			"command": "/root/go/bin/naabu -host {{domain}} -silent",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
 			"repository": "https://github.com/projectdiscovery/naabu"
@@ -212,8 +172,6 @@
 			"name": "Corsy",
 			"category": "Agents Scan",
 			"command": "python3 /app/Corsy/corsy.py -u https://{{domain}}",
-			"isByTarget": "false",
-			"isByRootDomain": "false",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Corsy/Script",
 			"repository": "https://github.com/s0md3v/Corsy"
