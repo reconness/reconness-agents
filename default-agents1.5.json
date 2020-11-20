@@ -163,7 +163,7 @@
 		{
 			"name": "Naabu",
 			"category": "Agents Scan",
-			"command": "/root/go/bin/naabu -host {{domain}} -silent",
+			"command": "/app/naabu -host {{domain}} -silent",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
 			"repository": "https://github.com/projectdiscovery/naabu"
