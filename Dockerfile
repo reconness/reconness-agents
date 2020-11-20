@@ -108,11 +108,12 @@ RUN /usr/local/go/bin/go get github.com/tomnomnom/waybackurls
 # To allow run gau inside the docker
 RUN /usr/local/go/bin/go get -u -v github.com/lc/gau
 
-# To allow run dnsprobe inside the docker
-RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/dnsprobe
+# To allow run dnsprobe inside the docker [IS NOT WORKING AND WAS ARCHIVED]
+# RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/dnsprobe
 
 # To allow run naabu inside the docker
-RUN /usr/local/go/bin/go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
+RUN wget https://github.com/projectdiscovery/naabu/releases/download/v2.0.2/naabu_2.0.2_linux_amd64.tar.gz
+RUN tar -xvf naabu_2.0.2_linux_amd64.tar.gz
 
 # To allow run shuffledns inside the docker
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
