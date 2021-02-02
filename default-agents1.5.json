@@ -157,8 +157,8 @@
 			"category": "Agents Scan",
 			"command": "echo '{{domain}}' | dnsx -silent -a -resp",
 			"isBySubdomain": "true",
-			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dnsprobe/Script",
-			"repository": "https://github.com/projectdiscovery/dnsprobe"
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dnsx/Script",
+			"repository": "https://github.com/projectdiscovery/dnsx"
 		},
 		{
 			"name": "Naabu",
