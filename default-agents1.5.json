@@ -2,7 +2,7 @@
 	"agents": [{
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
-			"command": "/root/go/bin/subfinder -d {{rootDomain}} -nW -silent",
+			"command": "subfinder -d {{rootDomain}} -nW -silent",
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script",
 			"repository": "https://github.com/projectdiscovery/subfinder"
@@ -68,7 +68,7 @@
 		{
 			"name": "Shuffledns",
 			"category": "Agents Subdomain Enum",
-			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
+			"command": "shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
 			"repository": "https://github.com/projectdiscovery/shuffledns"
@@ -153,9 +153,9 @@
 			"repository": "https://github.com/zmap/zdns"
 		},
 		{
-			"name": "Dnsprobe",
+			"name": "Dnsx",
 			"category": "Agents Scan",
-			"command": "echo '{{domain}}' | /root/go/bin/dnsprobe -r A",
+			"command": "echo '{{domain}}' | dnsx -silent -a -resp",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Dnsprobe/Script",
 			"repository": "https://github.com/projectdiscovery/dnsprobe"
@@ -163,7 +163,7 @@
 		{
 			"name": "Naabu",
 			"category": "Agents Scan",
-			"command": "/app/naabu -host {{domain}} -silent",
+			"command": "naabu -host {{domain}} -silent",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Naabu/Script",
 			"repository": "https://github.com/projectdiscovery/naabu"
