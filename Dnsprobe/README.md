@@ -1,32 +1,34 @@
-## Dnsprobe Command
+## Dnsx Command
 
 Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 
 ```
-echo {{domain}} | ./dnsprobe -r A
+echo {{domain}} | ./dnsx -silent -a -resp
 ```
 
-## Dnsprobe Command for Docker
+## Dnsx Command for Docker
 
 ```
-echo {{domain}} | /root/go/bin/dnsprobe -r A
+echo {{domain}} | dnsx -silent -a -resp
 ```
 
-## Dnsprobe Script
+## Dnsx Script
 
-Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Dnsprobe/Script)
+Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Dnsx/Script)
 
-## Dnsprobe Dockerfile Entry
+## Dnsx Dockerfile Entry
 
 ```
 # -------- Agents dependencies -------- 
 
-# To allow run dnsprobe inside the docker
+# To allow run dnsx inside the docker
 
 RUN apt-get update && apt-get install -y git wget
 RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
-RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/dnsprobe
+RUN wget https://github.com/projectdiscovery/dnsx/releases/download/v1.0.1/dnsx_1.0.1_linux_amd64.tar.gz
+RUN tar -xzvf dnsx_1.0.1_linux_amd64.tar.gz
+RUN mv dnsx /usr/local/bin/
 
 # -------- End Agents dependencies -------- 
 ```
