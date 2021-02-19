@@ -10,7 +10,7 @@ shuffledns -d {{rootDomain}} -r ~/resolvers.txt -w /app/all.txt -massdns ~/massd
 ## Shuffledns Command for Docker
 
 ```
-/root/go/bin/shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent
+shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent
 ```
 
 ## Shuffledns Script
@@ -29,7 +29,9 @@ RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
-RUN /usr/local/go/bin/go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
+RUN wget https://github.com/projectdiscovery/shuffledns/releases/download/v1.0.4/shuffledns_1.0.4_linux_amd64.tar.gz
+RUN tar -xzvf shuffledns_1.0.4_linux_amd64.tar.gz
+RUN mv shuffledns /usr/local/bin/
 
 # -------- End Agents dependencies -------- 
 ```

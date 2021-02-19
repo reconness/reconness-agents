@@ -1,10 +1,5 @@
 using ReconNess.Core.Models;
 
-if (lineInputCount < 20)
-{
-	return new ScriptOutput();
-}
-
 lineInput = lineInput.Replace("[2K","");
 var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"(.*?)\[Status: (.*?), Size: (.*?),");
 if (match.Success && match.Groups.Count == 4)

@@ -1,0 +1,13 @@
+using ReconNess.Core.Models;
+
+
+if (lineInput.Contains("Class:") || lineInput.Contains("Description:") || lineInput.Contains("Severity:") || 
+    lineInput.Contains("Exploitation:") || lineInput.Contains("ACAO Header:") || lineInput.Contains("ACAC Header:"))
+{
+    return new ScriptOutput 
+    { 
+        Note = lineInput.Replace("[93m-[0m", "")
+    };
+}
+ 
+return new ScriptOutput();

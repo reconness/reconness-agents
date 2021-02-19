@@ -9,7 +9,7 @@ Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 ## Naabu for Docker
 
 ```
-/root/go/bin/naabu -host {{domain}} -silent
+naabu -host {{domain}} -silent
 ```
 
 ## Naabu Script
@@ -23,10 +23,9 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Na
 
 # To allow run naabu inside the docker
 
-RUN apt-get update && apt-get install -y git wget
-RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
-RUN /usr/local/go/bin/go get -v github.com/projectdiscovery/naabu/cmd/naabu
+RUN wget https://github.com/projectdiscovery/naabu/releases/download/v2.0.3/naabu-linux-amd64.tar.gz
+RUN tar -xvf naabu-linux-amd64.tar.gz
+RUN cp naabu-linux-amd64 /usr/local/bin/naabu
 
 # -------- End Agents dependencies -------- 
 ```
