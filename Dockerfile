@@ -39,10 +39,23 @@ COPY --from=build /dist ./
 # RUN /root/go/bin/reconness-universal-wrapper setup -u myusername -p mypasssord -s http://mydomainorip.com
 #################################################################################################################################################
 RUN apt-get update && apt-get install -y git wget unzip python2.7 python-pip python3 python3-pip python-dnspython build-essential
-RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
+
+# Install Golang
+RUN apt-get update && apt-get install -y git wget unzip
+RUN wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.16.linux-amd64.tar.gz
+RUN export GOPATH=$HOME/go
+RUN export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# enable Go modules support
+ENV GO111MODULE=on
+
+#Install Reconness-universal-wrapper
 RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
-RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
+RUN /root/go/bin/reconness-universal-wrapper setup -u bossman -p e5AtyDDJbY3eAv1z -s https://recon.hiddengearz.com
+
+# To allow run subfinder inside the docker
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 
 # To allow run subfinder inside the docker
 RUN wget https://github.com/projectdiscovery/subfinder/releases/download/v2.4.5/subfinder_2.4.5_linux_amd64.tar.gz
