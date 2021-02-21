@@ -52,7 +52,7 @@ ENV GO111MODULE=on
 
 #Install Reconness-universal-wrapper
 RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
-RUN /root/go/bin/reconness-universal-wrapper setup -u bossman -p e5AtyDDJbY3eAv1z -s https://recon.hiddengearz.com
+RUN /root/go/bin/reconness-universal-wrapper setup -u -p -s <reconness.mydomain.com>
 
 # To allow run subfinder inside the docker
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
