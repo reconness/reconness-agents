@@ -39,15 +39,20 @@ COPY --from=build /dist ./
 # RUN /root/go/bin/reconness-universal-wrapper setup -u myusername -p mypasssord -s http://mydomainorip.com
 #################################################################################################################################################
 RUN apt-get update && apt-get install -y git wget unzip python2.7 python-pip python3 python3-pip python-dnspython build-essential
-RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
+# Install Golang
+RUN wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.16.linux-amd64.tar.gz
+RUN export GOPATH=$HOME/go
+RUN export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# Enable Go modules support
+ENV GO111MODULE=on
+
 RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapper
 RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 
 # To allow run subfinder inside the docker
-RUN wget https://github.com/projectdiscovery/subfinder/releases/download/v2.4.5/subfinder_2.4.5_linux_amd64.tar.gz
-RUN tar -xzvf subfinder_2.4.5_linux_amd64.tar.gz
-RUN mv subfinder /usr/local/bin/
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
 
 # To allow run amass inside the docker
 RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amass_linux_amd64.zip ; unzip amass_linux_amd64.zip
@@ -114,18 +119,14 @@ RUN cp naabu-linux-amd64 /usr/local/bin/naabu
 
 # To allow run shuffledns inside the docker
 RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
-RUN wget https://github.com/projectdiscovery/shuffledns/releases/download/v1.0.4/shuffledns_1.0.4_linux_amd64.tar.gz
-RUN tar -xzvf shuffledns_1.0.4_linux_amd64.tar.gz
-RUN mv shuffledns /usr/local/bin/
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
 
 # To allow run corsy inside the docker
 RUN git clone https://github.com/s0md3v/Corsy.git
 RUN cd Corsy && pip3 install -r requirements.txt
 
 # To allow run dnsx inside the docker
-RUN wget https://github.com/projectdiscovery/dnsx/releases/download/v1.0.1/dnsx_1.0.1_linux_amd64.tar.gz
-RUN tar -xzvf dnsx_1.0.1_linux_amd64.tar.gz
-RUN mv dnsx /usr/local/bin/
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
 
 # -------- End Agents dependencies -------- 
 
