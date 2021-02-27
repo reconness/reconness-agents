@@ -2,7 +2,7 @@
 	"agents": [{
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
-			"command": "subfinder -d {{rootDomain}} -nW -silent",
+			"command": "subfinder -d {{rootDomain}} -silent",
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Subfinder/Script",
 			"repository": "https://github.com/projectdiscovery/subfinder"
