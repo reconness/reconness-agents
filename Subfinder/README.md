@@ -3,13 +3,13 @@
 Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, yahoo.com if we define that as a root domain adding the Target
 
 ```
-subfinder -d '{{domain}} -nW -silent'
+subfinder -d '{{domain}} -silent'
 ```
 
 ## Subfinder Command for Docker
 
 ```
-subfinder -d {{rootDomain}} -nW -silent
+subfinder -d {{rootDomain}} -silent
 ```
 
 ## Subfinder Script
