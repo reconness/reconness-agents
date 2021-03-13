@@ -59,7 +59,7 @@ RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amas
 RUN mv /tmp/amass_linux_amd64/amass /bin
 
 # To allow run gobuster inside the docker
-RUN /usr/local/go/bin/go get github.com/OJ/gobuster
+RUN /usr/local/go/bin/go install github.com/OJ/gobuster/v3@latest
 RUN wget https://gist.githubusercontent.com/gorums/e471b842f1dd633469bffb5f750e0325/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt
 
 # To allow run sublist3r inside the docker
