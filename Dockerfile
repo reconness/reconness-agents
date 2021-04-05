@@ -100,8 +100,8 @@ RUN git clone https://github.com/zmap/zdns.git
 RUN cd zdns && /usr/local/go/bin/go build
 
 # To allow run knockpy the docker
-RUN git clone https://github.com/guelfoweb/knock
-RUN cd knock && python setup.py install
+#RUN git clone https://github.com/guelfoweb/knock
+#RUN cd knock && python setup.py install
 
 # To allow run Massdns inside the docker
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
