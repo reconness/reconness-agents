@@ -5,10 +5,10 @@ if (lineInputCount < 13)
 	return new ScriptOutput();
 }
 
-var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"^Found:\s(.*?)");
+var match = System.Text.RegularExpressions.Regex.Match(lineInput, @"^Found:\s(.*)?");
 if (match.Success && match.Groups.Count == 2)
 {
-    return new ScriptOutput { Subdomain = match.Groups[1].Value };
+    return new ScriptOutput { Subdomain = match.Groups[1].Value.Trim() };
 }
  
 return new ScriptOutput();
