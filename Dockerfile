@@ -96,8 +96,8 @@ RUN python3 -m pip install -U pip setuptools wheel
 RUN pip3 install -r /app/OneForAll/requirements.txt
 
 # To allow run zdns inside the docker
-#RUN git clone https://github.com/zmap/zdns.git
-#RUN cd zdns && /usr/local/go/bin/go build
+RUN git clone https://github.com/zmap/zdns.git
+RUN cd zdns/zdns && /usr/local/go/bin/go build
 
 # To allow run knockpy the docker
 RUN git clone https://github.com/guelfoweb/knock
