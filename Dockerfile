@@ -128,6 +128,10 @@ RUN cd Corsy && pip3 install -r requirements.txt
 # To allow run dnsx inside the docker
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
 
+# To allow run nuclei inside the docker
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei 
+RUN /root/go/bin/nuclei -update-templates
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

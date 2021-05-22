@@ -36,6 +36,7 @@ These are the list of Agents tested inside the Docker
 - [Dnsx](https://github.com/reconness/reconness-agents/tree/master/Dnsx)
 - [Naabu](https://github.com/reconness/reconness-agents/tree/master/Naabu)
 - [Corsy](https://github.com/reconness/reconness-agents/tree/master/Corsy)
+- [Nuclei](https://github.com/reconness/reconness-agents/tree/master/Nuclei)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)

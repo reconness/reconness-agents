@@ -175,6 +175,14 @@
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Corsy/Script",
 			"repository": "https://github.com/s0md3v/Corsy"
-		}			
+		},
+		{
+			"name": "Nuclei",
+			"category": "Agents Scan",
+			"command": "/root/go/bin/nuclei -u {{domain}} -t /root/nuclei-templates -silent",
+			"isBySubdomain": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Nuclei/Script",
+			"repository": "https://github.com/zmap/zdns"
+		}					
 	]
 }
