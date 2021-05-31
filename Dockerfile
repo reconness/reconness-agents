@@ -60,7 +60,6 @@ RUN mv /tmp/amass_linux_amd64/amass /bin
 
 # To allow run gobuster inside the docker
 RUN /usr/local/go/bin/go install github.com/OJ/gobuster/v3@latest
-RUN wget https://gist.githubusercontent.com/gorums/e471b842f1dd633469bffb5f750e0325/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt
 
 # To allow run sublist3r inside the docker
 RUN git clone https://github.com/aboul3la/Sublist3r.git
@@ -72,7 +71,6 @@ RUN chmod +x findomain-linux
 
 # To allow run ffuf inside the docker
 RUN /usr/local/go/bin/go get github.com/ffuf/ffuf
-RUN wget https://gist.githubusercontent.com/gorums/0a3a9d903e8e47fbff9d91097e19b4f8/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt
 
 # To allow run dirsearch inside the docker
 RUN git clone https://github.com/maurosoria/dirsearch.git
@@ -118,7 +116,6 @@ RUN tar -xvf naabu-linux-amd64.tar.gz
 RUN cp naabu-linux-amd64 /usr/local/bin/naabu
 
 # To allow run shuffledns inside the docker
-RUN cd /app && wget https://raw.githubusercontent.com/reconness/reconness-agents/master/resolvers.txt
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
 
 # To allow run corsy inside the docker
