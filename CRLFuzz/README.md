@@ -4,13 +4,13 @@ Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 
 
 ```
-crlfuzz -u http://{{domain}} -s
+crlfuzz -u https://{{domain}} -s
 ```
 
 ## CRLFuzz Command for Docker
 
 ```
-/root/go/bin/crlfuzz -u http://{{domain}} -s
+/root/go/bin/crlfuzz -u https://{{domain}} -s
 ```
 
 ## CRLFuzz Script
