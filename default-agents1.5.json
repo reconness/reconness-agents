@@ -187,7 +187,7 @@
 		{
 			"name": "CRLFuzz",
 			"category": "Agents Scan",
-			"command": "/root/go/bin/crlfuzz -u {{domain}} -s,
+			"command": "/root/go/bin/crlfuzz -u {{domain}} -s",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/CRLFuzz/Script",
 			"repository": "https://github.com/dwisiswant0/crlfuzz"
