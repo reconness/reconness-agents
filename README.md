@@ -37,6 +37,7 @@ These are the list of Agents tested inside the Docker
 - [Naabu](https://github.com/reconness/reconness-agents/tree/master/Naabu)
 - [Corsy](https://github.com/reconness/reconness-agents/tree/master/Corsy)
 - [Nuclei](https://github.com/reconness/reconness-agents/tree/master/Nuclei)
+- [CRLFuzz](https://github.com/reconness/reconness-agents/tree/master/CRLFuzz)
 
 ## Thanks 
 [@hdbreaker](https://github.com/hdbreaker)

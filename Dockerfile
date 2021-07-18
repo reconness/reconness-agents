@@ -129,6 +129,9 @@ RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/dnsx/
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei 
 RUN /root/go/bin/nuclei -update-templates
 
+# To allow run crlfuzz inside the docker
+RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]
