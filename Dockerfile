@@ -132,6 +132,9 @@ RUN /root/go/bin/nuclei -update-templates
 # To allow run crlfuzz inside the docker
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
 
+# To allow run puredns inside the docker
+RUN GO111MODULE=on /usr/local/go/bin/go get github.com/d3mondev/puredns/v2
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

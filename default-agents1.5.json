@@ -191,6 +191,14 @@
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/CRLFuzz/Script",
 			"repository": "https://github.com/dwisiswant0/crlfuzz"
-		}						
+		},
+		{
+			"name": "Puredns",
+			"category": "Agents Subdomain Enum",
+			"command": "/root/go/bin/puredns bruteforce /app/Content/wordlists/subdomain_enum/default.txt {{rootDomain}} --resolvers /app/Content/wordlists/dns_resolver_enum/default.txt --bin /app/massdns/bin/massdns -q",
+			"isByRootDomain": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Puredns/Script",
+			"repository": "https://github.com/d3mondev/puredns"
+		}					
 	]
 }

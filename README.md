@@ -17,6 +17,7 @@ These are the list of Agents tested inside the Docker
 - [Knockpy](https://github.com/reconness/reconness-agents/tree/master/Knockpy)
 - [Massdns](https://github.com/reconness/reconness-agents/tree/master/Massdns)
 - [Shuffledns](https://github.com/reconness/reconness-agents/tree/master/Shuffledns)
+- [Puredns](https://github.com/reconness/reconness-agents/tree/master/Puredns)
 
 ### Agents Dir Discovery
 
