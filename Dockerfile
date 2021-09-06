@@ -135,6 +135,9 @@ RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/dwisiswant0/crlfuzz/cm
 # To allow run puredns inside the docker
 RUN GO111MODULE=on /usr/local/go/bin/go get github.com/d3mondev/puredns/v2
 
+# To allow run gowitness inside the docker
+RUN GO111MODULE=on /usr/local/go/bin/go get -u github.com/sensepost/gowitness
+
 # -------- End Agents dependencies -------- 
 
 ENTRYPOINT ["dotnet", "ReconNess.Web.dll"]

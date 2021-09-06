@@ -199,6 +199,14 @@
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Puredns/Script",
 			"repository": "https://github.com/d3mondev/puredns"
+		},
+		{
+			"name": "Gowitness",
+			"category": "Agents Screenshot",
+			"command": "mkdir -p /app/Content/screenshots/{{target}}/{{rootDomain}}/ && /root/go/bin/gowitness single -o /app/Content/screenshots/{{target}}/{{rootDomain}}/{{domain}}.png https://{{domain}}",
+			"isBySubdomain": "true",
+			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gowitness/Script",
+			"repository": "https://github.com/sensepost/gowitness
 		}					
 	]
 }
