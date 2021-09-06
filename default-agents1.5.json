@@ -206,7 +206,7 @@
 			"command": "mkdir -p /app/Content/screenshots/{{target}}/{{rootDomain}}/ && /root/go/bin/gowitness single -o /app/Content/screenshots/{{target}}/{{rootDomain}}/{{domain}}.png https://{{domain}}",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Gowitness/Script",
-			"repository": "https://github.com/sensepost/gowitness
+			"repository": "https://github.com/sensepost/gowitness"
 		}					
 	]
 }
