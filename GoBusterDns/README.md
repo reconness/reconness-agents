@@ -11,7 +11,7 @@ gobuster dns -d {{domain}} -w ~/Desktop/tools/wordlist/all.txt --wildcard -z
 ## GoBusterDns Command for Docker
 
 ```
-/root/go/bin/gobuster dns -d {{domain}} -w /app/all.txt --wildcard -z
+/root/go/bin/gobuster dns -d {{domain}} -w /app/Content/wordlists/subdomain_enum/default.txt --wildcard -z
 ```
 
 ## GoBusterDns Script
