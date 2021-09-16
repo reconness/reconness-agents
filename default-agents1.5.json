@@ -20,7 +20,7 @@
 		{
 			"name": "GoBusterDns",
 			"category": "Agents Subdomain Enum",
-			"command": "/root/go/bin/gobuster dns -d {{rootDomain}} -w /app/all.txt --wildcard -z",
+			"command": "/root/go/bin/gobuster dns -d {{domain}} -w /app/Content/wordlists/subdomain_enum/default.txt --wildcard -z",
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDns/Script",
 			"repository": "https://github.com/OJ/gobuster#dns-mode-help"
