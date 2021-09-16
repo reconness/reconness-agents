@@ -10,7 +10,7 @@ shuffledns -d {{rootDomain}} -r ~/resolvers.txt -w /app/all.txt -massdns ~/massd
 ## Shuffledns Command for Docker
 
 ```
-shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent
+/root/go/bin/shuffledns -d {{rootDomain}} -r /app/Content/wordlists/dns_resolver_enum/default.txt -w /app/Content/wordlists/subdomain_enum/default.txt -massdns /app/massdns/bin/massdns -silent
 ```
 
 ## Shuffledns Script
