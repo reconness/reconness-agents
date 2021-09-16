@@ -68,7 +68,7 @@
 		{
 			"name": "Shuffledns",
 			"category": "Agents Subdomain Enum",
-			"command": "shuffledns -d {{rootDomain}} -r /app/resolvers.txt -w /app/all.txt -massdns /app/massdns/bin/massdns -silent",
+			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/Content/wordlists/dns_resolver_enum/default.txt -w /app/Content/wordlists/subdomain_enum/default.txt -massdns /app/massdns/bin/massdns -silent,
 			"isByRootDomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Shuffledns/Script",
 			"repository": "https://github.com/projectdiscovery/shuffledns"
