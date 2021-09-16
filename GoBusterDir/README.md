@@ -29,7 +29,6 @@ RUN tar -C /usr/local -xzf go1.16.linux-amd64.tar.gz
 RUN export GOPATH=$HOME/go
 RUN export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 RUN /usr/local/go/bin/go install github.com/OJ/gobuster/v3@latest
-RUN wget https://gist.githubusercontent.com/gorums/0a3a9d903e8e47fbff9d91097e19b4f8/raw/c81a34fe84731430741e0463eb6076129c20c4c0/content_discovery_all.txt
 
 # -------- End Agents dependencies -------- 
 ```
