@@ -76,7 +76,7 @@
 		{
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
-			"command": "/root/go/bin/ffuf -w /app/content_discovery_all.txt -u https://{{domain}}/FUZZ",
+			"command": "/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script",
 			"repository": "https://github.com/ffuf/ffuf"
@@ -84,7 +84,7 @@
 		{
 			"name": "GoBusterDir",
 			"category": "Agents Dir Discovery",
-			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/content_discovery_all.txt -z -k -r --wildcard",
+			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -z -k -r --wildcard",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script",
 			"repository": "https://github.com/OJ/gobuster#dir-mode-options"
