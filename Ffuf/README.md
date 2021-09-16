@@ -11,7 +11,7 @@ ffuf -w ~/Desktop/tools/wordlist/directories.txt -u https://{{domain}}/FUZZ
 ## ffuf Command for Docker
 
 ```
-/root/go/bin/ffuf -w /app/content_discovery_all.txt -u https://{{domain}}/FUZZ
+/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ
 ```
 
 ## ffuf Script
