@@ -29,7 +29,6 @@ RUN apt-get update && apt-get install -y git wget
 RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
 RUN tar -C /usr/local -xzf go1.14.6.linux-amd64.tar.gz
 RUN /usr/local/go/bin/go get github.com/OJ/gobuster
-RUN wget https://gist.githubusercontent.com/gorums/e471b842f1dd633469bffb5f750e0325/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt
 
 # -------- End Agents dependencies -------- 
 ```
