@@ -72,10 +72,6 @@ RUN chmod +x findomain-linux
 # To allow run ffuf inside the docker
 RUN /usr/local/go/bin/go get github.com/ffuf/ffuf
 
-# To allow run dirsearch inside the docker
-RUN git clone https://github.com/maurosoria/dirsearch.git
-RUN cd dirsearch && pip3 install -r requirements.txt
-
 # To allow run httprobe inside the docker
 RUN /usr/local/go/bin/go get github.com/tomnomnom/httprobe
 
@@ -122,6 +118,10 @@ RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/shuff
 # To allow run corsy inside the docker
 RUN git clone https://github.com/s0md3v/Corsy.git
 RUN cd Corsy && pip3 install -r requirements.txt
+
+# To allow run dirsearch inside the docker
+RUN git clone https://github.com/maurosoria/dirsearch.git
+RUN cd dirsearch && pip3 install -r requirements.txt
 
 # To allow run dnsx inside the docker
 RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
