@@ -74,6 +74,7 @@ RUN /usr/local/go/bin/go get github.com/ffuf/ffuf
 
 # To allow run dirsearch inside the docker
 RUN git clone https://github.com/maurosoria/dirsearch.git
+RUN cd dirsearch && pip3 install -r requirements.txt
 
 # To allow run httprobe inside the docker
 RUN /usr/local/go/bin/go get github.com/tomnomnom/httprobe
