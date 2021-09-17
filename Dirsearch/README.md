@@ -24,6 +24,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Di
 
 RUN apt-get update && apt-get install -y git python3 python3-pip
 RUN git clone https://github.com/maurosoria/dirsearch.git
+RUN cd dirsearch && pip3 install -r requirements.txt
 
 # -------- End Agents dependencies -------- 
 ```
