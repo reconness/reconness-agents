@@ -5,12 +5,12 @@ Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 If we have the wordlist in ~/Desktop/tools/wordlist/directories.txt
 
 ```
-gobuster dir -u https://{{domain}} -w ~/Desktop/tools/wordlist/directories.txt -z -k -r --wildcard 
+gobuster dir -u https://{{domain}} -w ~/Desktop/tools/wordlist/directories.txt -s 200,204 -z -k -r --wildcard 
 ```
 ## GoBusterDir Command for Docker
 
 ```
-/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -z -k -r --wildcard
+/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -s 200,204 -z -k -r --wildcard
 ```
 
 ## GoBusterDir Script
