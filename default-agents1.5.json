@@ -84,7 +84,7 @@
 		{
 			"name": "GoBusterDir",
 			"category": "Agents Dir Discovery",
-			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -z -k -r --wildcard",
+			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -s 200,204 -z -k -r --wildcard",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/GoBusterDir/Script",
 			"repository": "https://github.com/OJ/gobuster#dir-mode-options"
