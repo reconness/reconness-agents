@@ -76,7 +76,7 @@
 		{
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
-			"command": "/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ",
+			"command": "/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ -mc 200,204",
 			"isBySubdomain": "true",
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ffuf/Script",
 			"repository": "https://github.com/ffuf/ffuf"
