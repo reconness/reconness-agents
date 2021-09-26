@@ -5,13 +5,13 @@ Using {{domain}} ReconNess replace {{domain}} for the subdomain.
 If we have the wordlist in ~/Desktop/tools/wordlist/directories.txt
 
 ```
-ffuf -w ~/Desktop/tools/wordlist/directories.txt -u https://{{domain}}/FUZZ
+ffuf -w ~/Desktop/tools/wordlist/directories.txt -u https://{{domain}}/FUZZ -mc 200,204
 ```
 
 ## ffuf Command for Docker
 
 ```
-/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ
+/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ -mc 200,204
 ```
 
 ## ffuf Script
