@@ -1,5 +1,6 @@
 {
 	"agents": [{
+			"id": "f63b2fc9-4d2e-40a0-a161-ef9f05fb96a7",
 			"name": "Subfinder",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/subfinder -d {{rootDomain}} -silent",
@@ -8,6 +9,7 @@
 			"repository": "https://github.com/projectdiscovery/subfinder"
 		},
 		{
+			"id": "e36ae031-926d-4522-b36e-f4a115c0d838",
 			"name": "Amass",
 			"category": "Agents Subdomain Enum",
 			"command": "/bin/amass enum -d {{rootDomain}}",
@@ -18,6 +20,7 @@
 			"repository": "https://github.com/OWASP/Amass"
 		},
 		{
+			"id": "949b0548-3ee3-4ad2-9242-5081e7420409",
 			"name": "GoBusterDns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/gobuster dns -d {{domain}} -w /app/Content/wordlists/subdomain_enum/default.txt --wildcard -z",
@@ -26,6 +29,7 @@
 			"repository": "https://github.com/OJ/gobuster#dns-mode-help"
 		},
 		{
+			"id": "6caa9468-0ba3-462c-8b8f-67c849bd50ee",
 			"name": "Sublist3r",
 			"category": "Agents Subdomain Enum",
 			"command": "python /app/Sublist3r/sublist3r.py -d {{rootDomain}}",
@@ -34,6 +38,7 @@
 			"repository": "https://github.com/aboul3la/Sublist3r"
 		},
 		{
+			"id": "8c854ea6-73d2-4cc6-98dd-beb375da6ba9",
 			"name": "Findomain",
 			"category": "Agents Subdomain Enum",
 			"command": "./findomain-linux -t {{rootDomain}} -r",
@@ -42,6 +47,7 @@
 			"repository": "https://github.com/Edu4rdSHL/findomain"
 		},
 		{
+			"id": "1a7cb055-b6bd-475b-9a4a-04d3289b639e",
 			"name": "Massdns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/reconness-universal-wrapper exec \"/app/massdns/bin/massdns -r /app/massdns/lists/resolvers.txt *subdomains -w *outputFile -o S\" -a api/targets/exportSubdomains/{{target}}/{{rootDomain}} --silent",
@@ -50,6 +56,7 @@
 			"repository": "https://github.com/blechschmidt/massdns"
 		},
 		{
+			"id": "3c9e6508-1ae3-4b7e-bf41-686a9cb3d69e",
 			"name": "OneForAll",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/reconness-universal-wrapper exec \"python3 /app/OneForAll/oneforall.py --target {{rootDomain}} -path *outputDir/*.txt run\" --silent",
@@ -58,6 +65,7 @@
 			"repository": "https://github.com/shmilylty/OneForAll"
 		},
 		{
+			"id": "442f1d2b-3607-4d69-8add-389187e4a5e4",
 			"name": "Knockpy",
 			"category": "Agents Subdomain Enum",
 			"command": "python /app/knock/knockpy/knockpy.py {{rootDomain}}",
@@ -66,6 +74,7 @@
 			"repository": "https://github.com/guelfoweb/knock"
 		},
 		{
+			"id": "7e4060ba-61ab-4606-b0dd-76f7e12f3040",
 			"name": "Shuffledns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/shuffledns -d {{rootDomain}} -r /app/Content/wordlists/dns_resolver_enum/default.txt -w /app/Content/wordlists/subdomain_enum/default.txt -massdns /app/massdns/bin/massdns -silent",
@@ -74,6 +83,7 @@
 			"repository": "https://github.com/projectdiscovery/shuffledns"
 		},
 		{
+			"id": "1294172b-dfc1-4d81-af0e-4068e7aca63c",
 			"name": "Ffuf",
 			"category": "Agents Dir Discovery",
 			"command": "/root/go/bin/ffuf -w /app/Content/wordlists/dir_enum/default.txt -u https://{{domain}}/FUZZ -mc 200,204",
@@ -82,6 +92,7 @@
 			"repository": "https://github.com/ffuf/ffuf"
 		},
 		{
+			"id": "ae613f77-2c02-410b-a680-d49f49de8e3d",
 			"name": "GoBusterDir",
 			"category": "Agents Dir Discovery",
 			"command": "/root/go/bin/gobuster dir -u https://{{domain}} -w /app/Content/wordlists/dir_enum/default.txt -s 200,204 -z -k -r --wildcard",
@@ -90,6 +101,7 @@
 			"repository": "https://github.com/OJ/gobuster#dir-mode-options"
 		},
 		{
+			"id": "c501be1c-1869-45a4-adf6-4ad17c31ae32",
 			"name": "Dirsearch",
 			"category": "Agents Dir Discovery",
 			"command": "/app/dirsearch/dirsearch.py -u {{domain}} -e php -r",
@@ -98,6 +110,7 @@
 			"repository": "https://github.com/maurosoria/dirsearch"
 		},
 		{
+			"id": "67235bbd-7300-4363-a58e-4f9bf9e88aee",
 			"name": "Waybackurls",
 			"category": "Agents Dir Discovery",
 			"command": "echo '{{domain}}' | /root/go/bin/waybackurls | grep '^https://{{domain}}'",
@@ -106,6 +119,7 @@
 			"repository": "https://github.com/tomnomnom/waybackurls"
 		},
 		{
+			"id": "a3c6b596-4e6e-4561-b7cc-706b1e38a75f",
 			"name": "Gau",
 			"category": "Agents Dir Discovery",
 			"command": "echo '{{domain}}' | /root/go/bin/gau | grep '^https://{{domain}}'",
@@ -114,6 +128,7 @@
 			"repository": "https://github.com/lc/gau"
 		},
 		{
+			"id": "b8148ffd-8a42-47c5-af43-a7070f3c897d",
 			"name": "Httprobe",
 			"category": "Agents Scan",
 			"command": "echo '{{domain}}' | /root/go/bin/httprobe",
@@ -122,6 +137,7 @@
 			"repository": "https://github.com/tomnomnom/httprobe"
 		},
 		{
+			"id": "b3619edf-3b72-4f4e-b502-5e69cd550202",
 			"name": "Ping",
 			"category": "Agents Scan",
 			"command": "ping {{domain}} -c 1",
@@ -129,6 +145,7 @@
 			"scriptUrl": "https://raw.githubusercontent.com/reconness/reconness-agents/master/Ping/Script"
 		},
 		{
+			"id": "a547f6f4-4483-4416-854c-350d142d5cb9",
 			"name": "Nmap",
 			"category": "Agents Scan",
 			"command": "nmap -T4 {{domain}}",
@@ -137,6 +154,7 @@
 			"repository": "https://github.com/nmap/nmap"
 		},
 		{
+			"id": "5aa3e269-bd4c-49cd-9dff-09ed92031a85",
 			"name": "Takeover",
 			"category": "Agents Scan",
 			"command": "python3 /app/takeover/takeover.py -d {{domain}} -v",
@@ -145,6 +163,7 @@
 			"repository": "https://github.com/m4ll0k/takeover"
 		},	        
 		{
+			"id": "cbef6d66-5a76-4a17-9993-e6cc5fbeab60",
 			"name": "Zdns",
 			"category": "Agents Scan",
 			"command": "cd /app/zdns/zdns && echo '{{domain}},8.8.8.8' | /usr/local/go/bin/go run main.go A",
@@ -153,6 +172,7 @@
 			"repository": "https://github.com/zmap/zdns"
 		},
 		{
+			"id": "823d30d0-a4d6-4e84-b524-381de9fd64a7",
 			"name": "Dnsx",
 			"category": "Agents Scan",
 			"command": "echo '{{domain}}' | /root/go/bin/dnsx -silent -a -resp",
@@ -161,6 +181,7 @@
 			"repository": "https://github.com/projectdiscovery/dnsx"
 		},
 		{
+			"id": "be8670fa-a64e-403f-8757-198de793f94f",
 			"name": "Naabu",
 			"category": "Agents Scan",
 			"command": "naabu -host {{domain}} -silent",
@@ -169,6 +190,7 @@
 			"repository": "https://github.com/projectdiscovery/naabu"
 		},
 		{
+			"id": "7311854c-fa8c-4094-a480-3d8eca3dea70",
 			"name": "Corsy",
 			"category": "Agents Scan",
 			"command": "python3 /app/Corsy/corsy.py -u https://{{domain}}",
@@ -177,6 +199,7 @@
 			"repository": "https://github.com/s0md3v/Corsy"
 		},
 		{
+			"id": "967bef60-f2b5-4f3c-a51f-6af1fc2078f1",
 			"name": "Nuclei",
 			"category": "Agents Scan",
 			"command": "/root/go/bin/nuclei -u {{domain}} -t /root/nuclei-templates -silent",
@@ -185,6 +208,7 @@
 			"repository": "https://github.com/zmap/zdns"
 		},
 		{
+			"id": "da6dab5c-48e5-4a4b-b176-f77da5e4f6bc",
 			"name": "CRLFuzz",
 			"category": "Agents Scan",
 			"command": "/root/go/bin/crlfuzz -u https://{{domain}} -s",
@@ -193,6 +217,7 @@
 			"repository": "https://github.com/dwisiswant0/crlfuzz"
 		},
 		{
+			"id": "4fa692ac-ec48-4fcb-9c71-c48576c86ee6",
 			"name": "Puredns",
 			"category": "Agents Subdomain Enum",
 			"command": "/root/go/bin/puredns bruteforce /app/Content/wordlists/subdomain_enum/default.txt {{rootDomain}} --resolvers /app/Content/wordlists/dns_resolver_enum/default.txt --bin /app/massdns/bin/massdns -q",
@@ -201,6 +226,7 @@
 			"repository": "https://github.com/d3mondev/puredns"
 		},
 		{
+			"id": "ac33cc0f-1ff7-48ed-b30b-85df93ecb923",
 			"name": "Gowitness",
 			"category": "Agents Screenshot",
 			"command": "mkdir -p /app/Content/screenshots/{{target}}/{{rootDomain}}/ && /root/go/bin/gowitness single -o /app/Content/screenshots/{{target}}/{{rootDomain}}/{{domain}}.png https://{{domain}}",
