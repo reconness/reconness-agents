@@ -1,7 +1,7 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0.100-bullseye-slim AS build
 WORKDIR /app
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 RUN npm install -g @vue/cli
 
@@ -20,7 +20,7 @@ COPY . ./
 WORKDIR /app/ReconNess.Web
 RUN dotnet publish -c Release -o /dist
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 
 #####################################################################################################################
@@ -57,8 +57,8 @@ COPY --from=build /dist ./
 #################################################################################################################################################
 RUN apt-get update && apt-get install -y git wget unzip python2.7 python-pip python3 python3-pip python-dnspython build-essential
 # Install Golang
-RUN wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
-RUN tar -C /usr/local -xzf go1.16.linux-amd64.tar.gz
+RUN wget https://golang.org/dl/go1.17.linux-amd64.tar.gz
+RUN tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
 RUN export GOPATH=$HOME/go
 RUN export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
@@ -69,7 +69,7 @@ RUN /usr/local/go/bin/go get -u github.com/hiddengearz/reconness-universal-wrapp
 RUN /root/go/bin/reconness-universal-wrapper setup -u <reconness username> -p <reconness password> -s <reconness.mydomain.com>
 
 # To allow run subfinder inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@221eee8e0891c1bdae1228eb7068aa7b033d8483
+RUN /usr/local/go/bin/go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 
 # To allow run amass inside the docker
 RUN cd /tmp/ ; wget https://github.com/OWASP/Amass/releases/download/v3.7.4/amass_linux_amd64.zip ; unzip amass_linux_amd64.zip
@@ -87,7 +87,7 @@ RUN wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findoma
 RUN chmod +x findomain-linux
 
 # To allow run ffuf inside the docker
-RUN /usr/local/go/bin/go get github.com/ffuf/ffuf
+RUN /usr/local/go/bin/go install github.com/ffuf/ffuf@latest
 
 # To allow run httprobe inside the docker
 RUN /usr/local/go/bin/go get github.com/tomnomnom/httprobe
@@ -109,7 +109,7 @@ RUN pip3 install -r /app/OneForAll/requirements.txt
 
 # To allow run zdns inside the docker
 RUN git clone https://github.com/zmap/zdns.git
-RUN cd zdns/zdns && /usr/local/go/bin/go build
+RUN cd zdns && /usr/local/go/bin/go build
 
 # To allow run knockpy the docker
 RUN git clone https://github.com/guelfoweb/knock
@@ -119,10 +119,10 @@ RUN cd knock && python3 setup.py install
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
 
 # To allow run waybackurls inside the docker
-RUN /usr/local/go/bin/go get github.com/tomnomnom/waybackurls
+RUN /usr/local/go/bin/go install github.com/tomnomnom/waybackurls@latest
 
 # To allow run gau inside the docker
-RUN /usr/local/go/bin/go get -u -v github.com/lc/gau
+RUN /usr/local/go/bin/go install github.com/lc/gau/v2/cmd/gau@latest
 
 # To allow run naabu inside the docker
 RUN wget https://github.com/projectdiscovery/naabu/releases/download/v2.0.3/naabu-linux-amd64.tar.gz
@@ -130,7 +130,7 @@ RUN tar -xvf naabu-linux-amd64.tar.gz
 RUN cp naabu-linux-amd64 /usr/local/bin/naabu
 
 # To allow run shuffledns inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
+RUN /usr/local/go/bin/go install -v github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest
 
 # To allow run corsy inside the docker
 RUN git clone https://github.com/s0md3v/Corsy.git
@@ -141,20 +141,20 @@ RUN git clone https://github.com/maurosoria/dirsearch.git
 RUN cd dirsearch && pip3 install -r requirements.txt
 
 # To allow run dnsx inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
+RUN /usr/local/go/bin/go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 
 # To allow run nuclei inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei 
+RUN /usr/local/go/bin/go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 RUN /root/go/bin/nuclei -update-templates
 
 # To allow run crlfuzz inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz
+RUN /usr/local/go/bin/go install -v github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest
 
 # To allow run puredns inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get github.com/d3mondev/puredns/v2
+RUN /usr/local/go/bin/go install -v github.com/d3mondev/puredns/v2@latest
 
 # To allow run gowitness inside the docker
-RUN GO111MODULE=on /usr/local/go/bin/go get -u github.com/sensepost/gowitness
+RUN /usr/local/go/bin/go install -v github.com/sensepost/gowitness@latest
 
 # -------- End Agents dependencies -------- 
 
