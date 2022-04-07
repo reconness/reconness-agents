@@ -113,7 +113,7 @@ RUN cd zdns && /usr/local/go/bin/go build
 
 # To allow run knockpy the docker
 RUN git clone https://github.com/guelfoweb/knock
-RUN cd knock && python3 setup.py install
+RUN cd knock && pip3 install -r requirements.txt
 
 # To allow run Massdns inside the docker
 RUN git clone https://github.com/blechschmidt/massdns.git && cd massdns && make
