@@ -5,7 +5,7 @@ Using {{domain}} ReconNess replace {{domain}} to the root domain, for example, y
 If we have sublist3r in the folder /app/Sublist3r/
 
 ```
-python /app/Sublist3r/sublist3r.py -d {{domain}}
+python3 /app/Sublist3r/sublist3r.py -d {{domain}}
 ```
 
 ## Sublist3r Script
