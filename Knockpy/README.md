@@ -5,13 +5,13 @@ Using {{domain}} ReconNess replace {{domain}} to the root domain or {{rootDomain
 If we have knockpy in the folder /app/knock/
 
 ```
-python /app/knock/knockpy/knockpy.py {{rootDomain}}
+python3 /app/knock/knockpy/knockpy.py {{rootDomain}}
 ```
 
 ## Knockpy Command for Docker
  
 ```
-python /app/knock/knockpy/knockpy.py {{rootDomain}}
+python3 /app/knock/knockpy/knockpy.py {{rootDomain}}
 ```
 
 ## Knockpy Script
@@ -27,7 +27,7 @@ Check [Script file](https://github.com/reconness/reconness-agents/blob/master/Kn
 
 RUN apt-get update && apt-get install -y git python2.7 python-pip python-dnspython
 RUN git clone https://github.com/guelfoweb/knock
-RUN cd knock && python setup.py install
+RUN cd knock && pip3 install -r requirements.txt
 
 # -------- End Agents dependencies -------- 
 ```
